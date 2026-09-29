@@ -1,0 +1,167 @@
+{
+  "app": "tootsy",
+  "kind": "apps",
+  "version": 2,
+  "exportedAt": "2026-09-29T00:00:00.000Z",
+  "apps": [
+    {
+      "name": "Intranet",
+      "url": "https://intranet.example.com/",
+      "icon": {
+        "type": "emoji",
+        "emoji": "🏢",
+        "color": "#0f766e"
+      }
+    },
+    {
+      "name": "Mail",
+      "url": "https://mail.example.com/",
+      "icon": {
+        "type": "emoji",
+        "emoji": "📧",
+        "color": "#2563eb"
+      }
+    },
+    {
+      "name": "Chat",
+      "url": "https://chat.example.com/",
+      "icon": {
+        "type": "emoji",
+        "emoji": "💬",
+        "color": "#7c3aed"
+      }
+    },
+    {
+      "name": "IT Help",
+      "url": "https://helpdesk.example.com/",
+      "icon": {
+        "type": "emoji",
+        "emoji": "🛠️",
+        "color": "#ea580c"
+      }
+    },
+    {
+      "type": "folder",
+      "name": "HR",
+      "items": [
+        {
+          "name": "Payroll",
+          "url": "https://payroll.example.com/",
+          "icon": {
+            "type": "letters",
+            "letters": "PY",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "name": "Leave",
+          "url": "https://leave.example.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🌴",
+            "color": "#0891b2"
+          }
+        },
+        {
+          "name": "Benefits",
+          "url": "https://benefits.example.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "❤️",
+            "color": "#e11d48"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Finance",
+      "items": [
+        {
+          "name": "Expenses",
+          "url": "https://expenses.example.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧾",
+            "color": "#65a30d"
+          }
+        },
+        {
+          "name": "Purchasing",
+          "url": "https://po.example.com/",
+          "icon": {
+            "type": "letters",
+            "letters": "PO",
+            "color": "#b45309"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Engineering",
+      "items": [
+        {
+          "name": "Code",
+          "url": "https://git.example.com/",
+          "icon": {
+            "type": "letters",
+            "letters": "GIT",
+            "color": "#24292f"
+          }
+        },
+        {
+          "name": "Wiki",
+          "url": "https://wiki.example.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📚",
+            "color": "#4f46e5"
+          }
+        },
+        {
+          "name": "Status",
+          "url": "https://status.example.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🚦",
+            "color": "#dc2626"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "name": "Book leave",
+      "prompt": "Open leave.example.com and start a leave request for the dates I give you. Stop before submitting.",
+      "send": false,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📅",
+        "color": "#0891b2"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "New-hire checklist",
+      "prompt": "Open intranet.example.com/onboarding and list the tasks I still have to finish this week, with links.",
+      "send": true,
+      "hands": true,
+      "icon": {
+        "type": "emoji",
+        "emoji": "✅",
+        "color": "#16a34a"
+      }
+    },
+    {
+      "name": "Learning",
+      "url": "https://learn.example.com/",
+      "icon": {
+        "type": "emoji",
+        "emoji": "🎓",
+        "color": "#9333ea"
+      }
+    }
+  ]
+}
