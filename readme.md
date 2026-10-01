@@ -375,35 +375,186 @@ Settings → **Safety** holds the controls that decide what Tootsy may do:
 
 ## 3. Use cases
 
+Tootsy is most useful for the small chores you do in a browser every day. Below are ideas to borrow. Each one shows what to type or say, and the Tootsy feature that does the work. Anything in *italics* is a prompt tile you can save once and reuse with one tap.
+
 ### 3.1 Personal
 
-| Area | What to ask or set up |
+#### Quick wins to try in your first five minutes
+- Open any long article and ask **"Give me the five key points."** Then click one of the points to see where the page says it ([show on page](#271-see-where-an-answer-came-from)).
+- Select a confusing paragraph, right-click → **Ask Tootsy about "…"**.
+- Save a tile called *Explain this* with the instruction "Explain this in plain words: `{{selection}}`" ([fill-in blanks](#251-fill-in-blanks)).
+- Say **"open YouTube"** or **"open my bank"**. Tootsy finds the tile in My apps.
+- Ask **"Remember that my gym locker is number 42."** Ask about it next month.
+
+#### Everyday browsing
+| Try this | How Tootsy helps |
 |---|---|
-| **Shopping** | "Compare the three laptops in my open tabs by price, battery life and weight." A daily scheduled tile: "Check shop.example/deals and tell me anything under $50." |
-| **Reading and research** | "Summarise this article and list the claims it makes without a source." "Explain this Wikipedia section in plain words." |
-| **Travel** | "Find the cheapest non-stop flight on this results page and tell me the baggage rules." "Make a packing list from this itinerary." |
-| **Forms and admin** | "Fill in this registration form with my details." "Register me for the Saturday class, one adult, one child." You check before anything is submitted. |
-| **Money** | "Summarise the fees section of this bank's terms." Add your bank to **Protected sites** so Tootsy can read it but never act there. |
-| **Learning** | "Quiz me on this page, one question at a time." Drop your course notes into Tootsy and ask "what did the lecture say about photosynthesis?" |
-| **Job hunting** | "Compare this job ad with my CV (attached) and list what's missing." "Draft a cover letter from this posting." |
-| **Home and paperwork** | Drop in warranty PDFs and manuals: "How do I reset the dishwasher?" "When does the fridge warranty end?" |
-| **Accessibility** | Dictate instead of typing. Ask Tootsy to read long pages for you and pull out only what matters. |
-| **A tidy start page** | Put your daily sites and prompt tiles in My apps, group them into folders (Morning, Bills, Kids' school) and sync them to every computer. |
+| "Summarise this article and tell me what the author wants me to do." | Reads the page you're on, no copying and pasting. |
+| "Compare the three phones in my open tabs: price, camera, battery." | Reads several tabs and puts the answer in one table. |
+| "Is this review site trustworthy? What claims have no source?" | Reads the page critically and points to the lines it means. |
+| "Translate this page's main points into Spanish." | Works with any language the model knows. |
+| "Find the cancellation policy on this site." | Searches the page (and follows links if you allow it). |
+
+#### Shopping and deals
+| Try this | How Tootsy helps |
+|---|---|
+| "Tell me when these headphones drop below $80." | A [watch](#253-watch-a-page-for-changes) checks the page in the background and only notifies you when the price changes or falls below your limit. |
+| "Let me know when size 9 is back in stock." | Same: one notification when it changes, not every hour. |
+| "Summarise the 1-star reviews. What breaks first?" | Reads the review page for you. |
+| *Deals check*: "Open shop.example/deals and list anything under $50." | A scheduled tile that runs every morning and saves the result as a chat. |
+| "Add the black one in medium to my basket." | Clicks and picks options for you, with an approval chip before each step. |
+
+#### Travel
+| Try this | How Tootsy helps |
+|---|---|
+| "Find the cheapest non-stop flight on this page and tell me the baggage rules." | Reads long results pages and the fine print. |
+| "Watch this fare and tell me if it goes up." | A [watch](#253-watch-a-page-for-changes) on the booking page. |
+| "Make a packing list for this itinerary, it's 4 days in Lisbon in March." | Uses the page plus what you tell it. |
+| "Email me this hotel's address, check-in time and phone number." | Opens a ready [email draft](#254-email-drafts) to yourself. |
+| "Do I need a visa? Show me where it says so." | Answers from the official page and highlights the passage. |
+
+#### Home and family
+| Try this | How Tootsy helps |
+|---|---|
+| Drop in the dishwasher manual: "How do I clear the E24 error?" | [Answers from your files](#27-ask-about-your-own-files) and names the page it came from. |
+| "When does the fridge warranty end?" (with the warranty PDF added) | Finds dates in your documents. |
+| A *School* folder in My apps: portal, lunch menu, calendar | One tap from every computer with [sync](#211-move-tootsy-to-another-computer). |
+| *Sign-up form*: [record](#252-teach-by-showing-record-steps) yourself filling the swim-class form once | Next term, one tap fills it again. You check it before submitting. |
+| "Double this recipe and turn it into a shopping list." | Reads the recipe page and does the maths. |
+
+#### Money and paperwork
+| Try this | How Tootsy helps |
+|---|---|
+| "Summarise the fees section of this bank's terms." | Reads it. Add your bank to **Protected sites** and Tootsy can read it but never click or type there. |
+| Drop in three loan offers: "Which is cheapest over 5 years?" | Compares your documents side by side. |
+| "Fill in this change-of-address form with my details." | Fills every field in one go; you approve before anything is sent. |
+| *Renewals*: "Open the car registration page and tell me the renewal date." | A tile you run once a month, or schedule. |
+
+#### Learning
+| Try this | How Tootsy helps |
+|---|---|
+| "Quiz me on this page, one question at a time." | Turns any page into practice. |
+| Add your lecture notes: "What did week 3 say about photosynthesis?" | Searches your notes and quotes them. |
+| "Explain this like I'm 12, then like I'm a university student." | Two levels from the same page. |
+| "Make flashcards from this chapter." | Reads the page and writes question-answer pairs. |
+| Set Tootsy to **Español** or **Français** | The interface follows; practise reading menus in the language you're learning. |
+
+#### Job hunting and side projects
+| Try this | How Tootsy helps |
+|---|---|
+| "Compare this job ad with my CV (attached). What's missing?" | Reads both and lists the gaps. |
+| "Draft a cover letter for this posting in a friendly tone." | Uses the job page and your CV. |
+| *Apply helper*: "Fill this application form with my details, stop before submitting." | Saves the typing on every application. |
+| "How fast is my blog? What are the top 3 fixes?" | Runs a page-speed audit like PageSpeed Insights. |
+| "Check my portfolio page for accessibility problems." | Contrast, missing labels, heading order. |
+
+#### Comfort and accessibility
+- **Talk instead of typing.** Click the mic, speak, and pause; the message sends itself.
+- **Your language.** Menus in English, Español, Português, Filipino, Deutsch or Français.
+- **Less reading.** "Read this page and tell me only what I need to do" works on long letters, terms and forms.
+- **Bigger picture.** Ask Tootsy to describe a chart or image on the page (with a model that can see screenshots).
+
+#### Your own start page
+Put your daily sites and prompt tiles in My apps, group them into folders (*Morning*, *Bills*, *Kids' school*, *Travel*) by holding one app over another, and turn on **Sync across computers**. Every new chat opens on your personal home screen.
 
 ### 3.2 Corporate
 
-| Team | How Tootsy helps |
+#### For everyone at work
+| Try this | How Tootsy helps |
 |---|---|
-| **IT: onboarding** | Hand every new hire a ready-made **My apps** set of the company's tools, grouped by department, so they find everything on day one. See the [walkthrough](#33-walkthrough-onboarding-a-new-hire-with-my-apps). |
-| **IT: helpdesk** | Prompt tiles such as "Open the helpdesk and create a ticket for a broken laptop screen, stop before submitting". Staff can ask "how do I connect to the VPN?" against the IT handbook loaded as files. |
-| **HR** | Tiles for booking leave, updating details or finding a payslip. Policy PDFs loaded as files answer questions like "how many days of parental leave do I get?" |
-| **Sales and account teams** | "Copy the contact details from this LinkedIn page into the CRM form." "Summarise this prospect's website: what they sell, their size and recent news." |
-| **Finance and procurement** | "Fill in this expense claim from the receipt I attached." "Compare these three supplier quotes (attached) and flag differences in payment terms." |
-| **Customer support** | "Summarise this ticket thread and draft a reply in our house style." Custom instructions keep tone and sign-off consistent. |
-| **Web, QA and marketing** | "Audit this page's speed and accessibility and list the top fixes." A scheduled tile that checks key pages every morning. "Click through the signup flow and tell me where it breaks." |
-| **Compliance and security** | Protected sites keep Tootsy away from sensitive systems, always-ask sites need human approval, the page guard blocks planted instructions, and the **action log** exports to CSV for audits. |
-| **Data governance** | Point Tootsy at a company-approved model: a local Ollama or an internal OpenAI-compatible gateway. Page content and files then never leave the company. Save the gateway as a **profile** so staff can't mistype it. |
-| **Training** | Load training material as files and let new staff ask questions. Prompt tiles walk them through common tasks in each internal tool. |
+| "Summarise this agenda and list what I need to prepare." | Reads the meeting page or attached file. |
+| "Draft a reply to this thread: agree, but move the deadline to Friday." | Opens an [email draft](#254-email-drafts) in Outlook or Gmail for you to check and send. |
+| "Tell me when the travel policy page changes." | A [watch](#253-watch-a-page-for-changes) checks the page in the background and tells you when it changes. |
+| "Where does the contract say we can cancel?" then click the answer | [Show on page](#271-see-where-an-answer-came-from) highlights the exact clause. |
+| *Status update*: "Summarise my open tickets on `{{page}}` in three bullets for my manager." | A tile with a [blank](#251-fill-in-blanks) that fills in whichever page you're on. |
+
+#### IT
+| Scenario | How Tootsy helps |
+|---|---|
+| **Onboarding** | Every new hire gets the company's apps in My apps on day one, grouped by department. See the [walkthrough](#33-walkthrough-onboarding-a-new-hire-with-my-apps) and [browser policy](#34-for-it-manage-tootsy-with-browser-policy). |
+| **Self-service helpdesk** | A company tile *Report a problem*: "Open helpdesk.acme.example and start a ticket about `{{ask: What's wrong?}}`. Stop before submitting." Staff answer one question; the ticket is filled for them. |
+| **How-to answers** | Load the IT handbook as files: "How do I connect to the VPN from home?" answers with the page it came from. |
+| **Repeatable admin tasks** | [Record](#252-teach-by-showing-record-steps) yourself resetting an account in the admin portal once; save it as a tile for the team. |
+| **Service checks** | A scheduled watch on the status page: notified only when a service changes state. |
+| **Governance** | Lock the AI server, allow only approved endpoints, keep payroll and admin consoles protected, and turn off hands-free runs if needed, all from the admin console. |
+
+#### HR and people teams
+| Scenario | How Tootsy helps |
+|---|---|
+| **Leave and time off** | A company tile *Book leave* asks "First day off?" and "Back at work on?", then fills the leave form and stops before submitting. |
+| **Policy questions** | Load the handbook: "How many days of parental leave do I get?" quotes the policy. |
+| **Hiring** | "Compare these five CVs (attached) against the job description and rank them, with reasons." |
+| **Job posts** | "Rewrite this job ad to be clearer and more inclusive." |
+| **Onboarding checklists** | *New-hire checklist*: "Open the onboarding page and list what I still need to finish this week, with links." |
+
+#### Sales and account management
+| Scenario | How Tootsy helps |
+|---|---|
+| **Prospect research** | "Summarise this company's website: what they sell, how big they are, recent news." |
+| **CRM data entry** | "Copy the contact details on this page into the CRM form." Fills the form; you approve. |
+| **Follow-ups** | "Draft a follow-up email to the contact on this page about our call yesterday." |
+| **Competitor pricing** | A watch on a competitor's pricing page: one notification when it changes. |
+| **Call prep** | *Account brief*: "Summarise `{{page}}` and list three questions to ask on the call." |
+
+#### Marketing, web and content
+| Scenario | How Tootsy helps |
+|---|---|
+| **Speed and SEO** | "Audit this page's speed and give me the top fixes" (Core Web Vitals, PageSpeed-style score). |
+| **Accessibility** | "Check this landing page for accessibility problems." |
+| **Daily site check** | A scheduled tile that checks key pages every morning and only alerts when something breaks. |
+| **Content reuse** | "Turn this blog post into three LinkedIn posts and a newsletter paragraph." |
+| **Campaign QA** | "Click through the signup flow and tell me where it breaks." |
+
+#### Customer support
+| Scenario | How Tootsy helps |
+|---|---|
+| **Ticket summaries** | "Summarise this thread: what the customer wants, what's been tried." |
+| **Replies in house style** | Custom instructions keep tone and sign-off consistent: "Draft a reply." |
+| **Knowledge base** | Load product docs as files and answer from them, with the source shown. |
+| **Macros** | Prompt tiles for common answers, with blanks: "Apologise for the delay on order `{{ask: Order number?}}` and give the new date." |
+| **Many languages** | Agents can use the interface in their own language, and ask Tootsy to draft replies in the language the customer wrote in. |
+
+#### Finance, procurement and operations
+| Scenario | How Tootsy helps |
+|---|---|
+| **Expenses** | "Fill in this expense claim from the receipt I attached." |
+| **Supplier quotes** | "Compare these three quotes (attached): price, payment terms, delivery." |
+| **Price and rate watches** | Watch a supplier's price list or an exchange-rate page; notified only on change. |
+| **Repetitive portals** | Record the invoice-upload steps once; the team runs them with one tap. |
+| **Shipments** | "Tell me when this shipment's status changes." |
+
+#### Engineering and QA
+| Scenario | How Tootsy helps |
+|---|---|
+| **Debugging** | "Why is this button misaligned?" Inspects HTML and CSS like DevTools; with the DevTools toggle on, also reads console errors and network requests. |
+| **Smoke tests** | With you signed in to staging: "Open settings, change the display name and check that Save works." |
+| **Release notes** | "Compare the changelogs in my two open tabs. What changed?" |
+| **Staging checks** | A scheduled watch on the staging health page. |
+
+#### Legal, compliance and security
+| Scenario | How Tootsy helps |
+|---|---|
+| **Contract review** | "List the termination, liability and renewal clauses." When the contract is open as a web page, click any line of the answer to see the clause highlighted. |
+| **Policy changes** | Watch a regulator's or supplier's terms page; get told when it changes. |
+| **Audit trail** | The action log records every click, form fill, navigation and export, and exports to CSV. |
+| **Guardrails** | Protected sites, always-ask sites and the page guard against hidden instructions are on for everyone, and can be locked by policy. |
+| **Data governance** | Point Tootsy at a company-approved model (a local Ollama or an internal gateway) and allow only that server, so page content and files never leave the company. |
+
+#### Managers and leadership
+| Scenario | How Tootsy helps |
+|---|---|
+| **Morning briefing** | *Morning brief*: a scheduled tile that reads the team dashboard each morning and saves a three-line summary as a chat. |
+| **Board packs** | Load the pack as files: "What are the three biggest risks mentioned, and where?" |
+| **Quick decisions** | "Compare these two vendor proposals (attached) and recommend one, with reasons." |
+
+#### A starter set for a team
+A team lead can share one app list (⋯ → **Export for Tootsy**, then everyone uses **Subscribe to an app list…**) with:
+- the team's everyday tools in a folder;
+- *Report a problem*, *Book leave* and *Status update* tiles with blanks;
+- a recorded tile for the most tedious portal task;
+- one watch on the page everyone keeps checking.
+
+When the list changes, everyone's Tootsy updates within a day.
 
 ### 3.3 Walkthrough: onboarding a new hire with My apps
 
