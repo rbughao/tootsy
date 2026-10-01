@@ -22,14 +22,20 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Connect Tootsy to the model](#13-connect-tootsy-to-the-model)
    - [Open Tootsy](#14-open-tootsy)
    - [Settings worth knowing](#15-settings-worth-knowing)
+   - [Choose your language](#16-choose-your-language)
 2. [Use Tootsy](#2-use-tootsy)
    - [Ask about the page](#21-ask-about-the-page)
    - [Let Tootsy act on a page](#22-let-tootsy-act-on-a-page)
    - [Run a task hands-free](#23-run-a-task-hands-free)
    - [My apps: your launcher](#24-my-apps-your-launcher)
    - [Prompt tiles and schedules](#25-prompt-tiles-and-schedules)
+   - [Fill-in blanks](#251-fill-in-blanks)
+   - [Teach by showing: record steps](#252-teach-by-showing-record-steps)
+   - [Watch a page for changes](#253-watch-a-page-for-changes)
+   - [Email drafts](#254-email-drafts)
    - [Talk to Tootsy](#26-talk-to-tootsy)
    - [Ask about your own files](#27-ask-about-your-own-files)
+   - [See where an answer came from](#271-see-where-an-answer-came-from)
    - [More tools](#28-more-tools)
    - [Chats and sessions](#29-chats-and-sessions)
    - [Stay in control](#210-stay-in-control)
@@ -38,6 +44,8 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Personal](#31-personal)
    - [Corporate](#32-corporate)
    - [Walkthrough: onboarding a new hire with My apps](#33-walkthrough-onboarding-a-new-hire-with-my-apps)
+   - [For IT: manage Tootsy with browser policy](#34-for-it-manage-tootsy-with-browser-policy)
+   - [Shared app lists](#35-shared-app-lists)
 4. [Troubleshooting](#4-troubleshooting)
 5. [Privacy in one minute](#5-privacy-in-one-minute)
 6. [Permissions](#6-permissions)
@@ -92,11 +100,22 @@ Tootsy works with any model that supports *tool calling*. That's how it reads pa
 
 ### 1.3 Connect Tootsy to the model
 
-The first time you open Tootsy it shows three setup steps.
+The first time you open Tootsy, it looks for an AI model on your computer and offers the next step:
 
-<p align="center"><img src="images/setup-first-run.png" alt="Tootsy's first-run screen with three setup steps and an Open settings button" width="320"></p>
+<p align="center">
+  <img src="images/setup-helper.png" alt="First-run helper: Let's get you an AI model, with Get Ollama, check again and cloud buttons" width="280">
+  &nbsp;
+  <img src="images/setup-helper-ready.png" alt="First-run helper: Ollama is running, with a Use gemma4:e4b button" width="280">
+</p>
 
-1. Click **Open settings**. You can also open settings any time with the sliders icon next to the send button.
+- **Nothing installed yet:** click **Get Ollama (free)**, install it, then **I've installed it, check again**.
+- **Ollama is running but has no models:** click **Download gemma4:e4b**. A progress bar shows the download; when it finishes, Tootsy is set up.
+- **Ollama or LM Studio is running with a model:** click **Use …** and you're done.
+- **Prefer a cloud service?** Click **Use a cloud service** and follow the steps below.
+
+To set it up by hand instead (or to use a paid service):
+
+1. Click **Open settings** (under **Set it up by hand**). You can also open settings any time with the sliders icon next to the send button.
 2. Under **LLM configuration**, fill in **Base URL endpoint**:
 
    | Model | Endpoint to enter |
@@ -141,6 +160,12 @@ The first time you open Tootsy it shows three setup steps.
 | **History search / DevTools-level tools** | Tools | Extra abilities that stay off until you turn them on. |
 | **Backup** | Backup | Export or import all your settings, or just your apps. |
 | **Embedding model / folders** | Files | Needed for questions about your own documents. |
+
+### 1.6 Choose your language
+
+Tootsy's buttons, menus and settings are available in **English, Español, Português, Filipino, Deutsch and Français**. It follows your browser's language by default; change it in Settings → Appearance → **Language**. Your chats, page content and the names of your apps stay exactly as they are. The AI answers in the language you write in.
+
+<p align="center"><img src="images/language-spanish.png" alt="Tootsy's safety settings shown in Spanish" width="300"></p>
 
 ---
 
@@ -230,6 +255,51 @@ Each prompt tile has:
 
 Right-click a prompt tile for **Run**, **Edit before sending**, **Schedule…** and **Copy prompt**. Every scheduled prompt is also listed in settings under **Scheduled prompts**.
 
+#### 2.5.1 Fill-in blanks
+
+A prompt tile can leave blanks that are filled in when it runs. Tap a chip under the instruction in the editor to insert one:
+
+| Blank | Filled with |
+|---|---|
+| `{{selection}}` | the text you've selected on the page |
+| `{{page}}` | the page's title and address (`{{url}}` or `{{title}}` for just one) |
+| `{{clipboard}}` | what you last copied (Chrome asks once for permission) |
+| `{{date}}`, `{{time}}` | today's date, the time now |
+| `{{ask: Which dates?}}` | asks you before running; add a default after a bar: `{{ask: Back on? \| Monday}}` |
+
+For example, a **Book leave** tile with *"Start a leave request from `{{ask: First day off?}}` to `{{ask: Back at work on? | Monday}}`. Stop before submitting."* asks two questions, then runs:
+
+<p align="center"><img src="images/prompt-blanks.png" alt="Book leave needs a few details: First day off? Back at work on? with Run and Cancel" width="300"></p>
+
+Scheduled runs can't ask you anything, so they use each blank's default (or leave it empty); `{{date}}` and `{{time}}` always work.
+
+#### 2.5.2 Teach by showing: record steps
+
+Instead of writing an instruction, show Tootsy what to do:
+
+1. Open the website you want to automate.
+2. In My apps, click ⋯ → **● Record steps as a prompt…**. A red **Recording** bar appears.
+3. Do the task yourself: click, type, choose from dropdowns, tick boxes. Each step appears in the bar as you go.
+4. Click **Stop & save**. The prompt editor opens with your steps written out as an instruction. Name it, tweak it (for example, swap a typed value for `{{ask: …}}`) and save.
+
+<p align="center"><img src="images/record-steps.png" alt="The Recording bar listing five recorded steps with Stop & save and Cancel" width="300"></p>
+
+Passwords are never recorded: a password field becomes "stop and ask me to type my password myself".
+
+#### 2.5.3 Watch a page for changes
+
+Ask in plain words: *"Tell me when the Acme Buds drop below $40"* or *"Let me know when this job posting changes."* Tootsy saves a 👀 watch tile in a **Watching** folder that checks the page on a schedule in the background. You get a notification the first time (with the current value) and then **only when something changes**, or when your condition is met.
+
+You can turn any scheduled prompt tile into a watch: tick **Only tell me when something changes** under **Run automatically** in the editor.
+
+Background checks open the page in a tab of their own and close it afterwards, so they never take over the tab you're using.
+
+#### 2.5.4 Email drafts
+
+Say *"email this summary to me"* or *"draft an email to sam@example.com with these prices"*, and Tootsy opens a ready-to-send draft in your mail. **It never sends anything itself**: you review the draft and press Send.
+
+Set it up once in Settings → **Email**: choose **Gmail**, **Outlook (work or school)**, **Outlook.com** or **My default mail app**, and enter your own address so "to me" works. Very long messages don't fit in a draft link, so Tootsy puts a shortened version in the draft and the full text on your clipboard to paste in.
+
 ### 2.6 Talk to Tootsy
 
 - **Open things by name.** Type or say "open Payroll" or "run Speed report", and Tootsy finds the matching tile in My apps.
@@ -245,6 +315,10 @@ Click **+** next to the message box and choose **Add files…** or **Add folder�
 - Files belong to the chat you added them in. For reference material you want in every chat, turn on **Add new files to every chat (shared)** in settings under **Files** before adding it.
 - **Connect folder…** links a folder on your computer. Tootsy re-reads it when files change.
 - For the best answers, set an **embedding model** (such as `nomic-embed-text`) in the Files settings. Without one, Tootsy falls back to keyword search.
+
+### 2.7.1 See where an answer came from
+
+When Tootsy answers from the page you're on, click any line of the answer (a sentence, a bullet or a table row). Tootsy scrolls the page to the passage it came from and highlights it in yellow. If it can't find it, the answer probably came from another tab, a file or the model's own knowledge, and Tootsy says so.
 
 ### 2.8 More tools
 
@@ -398,11 +472,78 @@ Importing again later is safe. Apps you already have are skipped, and folders wi
 
 #### Rolling it out to many people
 
-- **Install Tootsy for everyone**: add Tootsy's extension ID, `ciibbiepfffkcddkgmdbnlibjjhahmld`, to Chrome's **ExtensionInstallForcelist** policy (Google Admin console, or Group Policy / Intune on Windows). Edge has the same policy. Tootsy then appears on every managed browser automatically.
-- **Pre-set the model**: set up one computer with the company endpoint and a profile, then Settings → Backup → **Export backup…**. New hires import that backup instead of typing settings. The backup includes any API key, so share it only through internal channels.
-- **Keep sensitive systems off-limits**: put payroll, banking and admin consoles in **Protected sites** before you export the backup, so every new hire starts with the same guardrails.
+For managed browsers, skip the import entirely: IT can push the company apps and settings straight into Tootsy through browser policy. See the next section.
 
-> Tootsy doesn't yet read its apps list from browser policy. Today the new hire imports the file once, which takes a few seconds.
+### 3.4 For IT: manage Tootsy with browser policy
+
+Chrome and Edge let IT configure an extension from the admin console. With Tootsy's policy you can:
+
+- **Push company apps** that every user sees in a locked **Company apps** section above their own apps (they can open and run them, but not edit, move or delete them).
+- **Point Tootsy at a company app list** that it re-checks twice a day, so updates reach everyone without a new policy push.
+- **Set defaults or lock settings** such as the AI server, model, protected sites and safety options. Locked settings show 🔒 *Set by your organization* and can't be changed.
+- **Allow only approved AI servers**, so page content and files never go to an unapproved service.
+- **Turn off hands-free runs** (automation mode, hands-free tiles and scheduled background runs).
+
+<p align="center">
+  <img src="images/company-apps-policy.png" alt="My apps with a locked Acme apps section, a subscribed Team tools section and the user's own apps" width="280">
+  &nbsp;
+  <img src="images/policy-locked-settings.png" alt="Settings with a banner saying the organization manages some settings, and a locked endpoint" width="280">
+</p>
+
+**Step 1. Install Tootsy for everyone.** Add Tootsy's extension ID, `ciibbiepfffkcddkgmdbnlibjjhahmld`, to the force-install list:
+- **Google Admin console:** Devices → Chrome → Apps & extensions → Users & browsers → add from the Chrome Web Store → *Force install*.
+- **Windows (Group Policy or Intune):** `ExtensionInstallForcelist` for Chrome; the same policy exists for Edge.
+
+**Step 2. Configure it.** In the Google Admin console, select Tootsy and paste a policy in **Policy for extensions**. Each setting is wrapped in `{ "Value": … }`:
+
+```json
+{
+  "appsTitle": { "Value": "Acme apps" },
+  "apps": { "Value": [
+    { "name": "Intranet", "url": "https://intranet.acme.example/" },
+    { "name": "IT Help", "url": "https://helpdesk.acme.example/" },
+    { "type": "folder", "name": "HR", "items": [
+      { "name": "Payroll", "url": "https://payroll.acme.example/" },
+      { "type": "prompt", "name": "Book leave", "prompt": "Open leave.acme.example and start a leave request from {{ask: First day off?}} to {{ask: Back at work on?}}. Stop before submitting." }
+    ] }
+  ] },
+  "appsUrl": { "Value": "https://intranet.acme.example/tootsy/apps.json" },
+  "settings": { "Value": {
+    "endpoint": "https://ai.acme.example/v1",
+    "selectedModel": "acme-assistant",
+    "protectedSites": "payroll.acme.example\nbank.example.com",
+    "emailClient": "outlook"
+  } },
+  "lockedSettings": { "Value": ["endpoint", "selectedModel", "protectedSites"] },
+  "allowedEndpoints": { "Value": ["ai.acme.example"] },
+  "allowHandsFree": { "Value": true }
+}
+```
+
+On **Windows** you can set the same keys in the registry under `HKLM\Software\Policies\Google\Chrome\3rdparty\extensions\ciibbiepfffkcddkgmdbnlibjjhahmld\policy` (Edge: `...\Microsoft\Edge\3rdparty\extensions\ciibbiepfffkcddkgmdbnlibjjhahmld\policy`), and on **Mac** with a configuration profile for `com.google.Chrome.extensions.ciibbiepfffkcddkgmdbnlibjjhahmld`. There, use the values directly, without the `"Value"` wrapper.
+
+| Policy | What it does |
+|---|---|
+| `apps` | Company apps, prompt tiles and folders, in the same shape as a Tootsy apps file. Leave out `icon` and Tootsy fetches each site's own. |
+| `appsTitle` | The heading above them. Default: *Company apps*. |
+| `appsUrl` | An address of a Tootsy apps file (or bookmarks `.html`) everyone follows. It's fetched with the user's sign-in, so it can live on the intranet. |
+| `settings` | Defaults. Each one fills a setting the user hasn't set yet. |
+| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`. |
+| `allowedEndpoints` | AI servers Tootsy may use, by host name. A request to anything else is refused with a clear message. |
+| `allowHandsFree` | `false` turns off automation mode, hands-free tiles and scheduled background runs. |
+
+Changes take effect within seconds of Chrome receiving the policy. Users with the extension open see the locked sections update in place.
+
+### 3.5 Shared app lists
+
+You don't need an admin console to share apps. Publish a Tootsy apps file (My apps ⋯ → **Export for Tootsy (.json)**) anywhere people can reach it: an intranet page, a shared drive with a web link, or a GitHub file. Then anyone can follow it:
+
+1. My apps ⋯ → **Subscribe to an app list…**
+2. Paste the address and press OK.
+
+The list appears in its own locked section above your apps and is re-checked twice a day. If the address can't be reached, Tootsy keeps the last copy and shows ⚠ next to the section title. To stop following it, choose ⋯ → **Unsubscribe from "…"**. You can add `"title": "Team tools"` at the top of the file to name the section.
+
+This suits teams, schools and clubs: one person maintains the file, and everyone's Tootsy stays up to date.
 
 ---
 
@@ -418,6 +559,9 @@ Importing again later is safe. Apps you already have are skipped, and folders wi
 | The microphone doesn't work | Click the mic again. Tootsy opens a small tab where Chrome asks for microphone access. Allow it, then return to the panel. |
 | A scheduled prompt didn't run | Scheduled prompts run only while Chrome is open. Check the times in Settings → **Scheduled prompts**. |
 | A hands-free task keeps asking for approval | The site isn't one you opened or named, or it's on your "always ask" list. Choose **Approve & trust** for sites you know. |
+| A watch never notifies | Watches only notify when the value changes. The first check always notifies; if it didn't, check the tile has a schedule and Chrome was open. |
+| "Your organization only allows these AI servers" | Your IT team restricts which AI services Tootsy may use. Pick one of the listed servers in settings. |
+| A company app can't be edited or removed | It's managed by your organization (🔒). Ask IT to change the company list. |
 | A tool is missing from the answer | With **Send only the tools each request needs** on, Tootsy picks tools per message. Ask more directly ("fill in this form…"), or turn the setting off. |
 
 ---
@@ -426,7 +570,9 @@ Importing again later is safe. Apps you already have are skipped, and folders wi
 
 - Tootsy sends page content, your messages and your files **only to the model endpoint you choose**. With a local model, nothing leaves your computer.
 - The developer runs no servers and collects nothing: no analytics, no tracking, no account.
-- Settings, chats, notes, files and the action log are stored in your browser profile. **Sync across computers**, if you turn it on, copies only your My apps list (names, links, prompts, folders; no images) through your own Chrome sync.
+- Settings, chats, notes, files and the action log are stored in your browser profile.
+- An app list you subscribe to (or your organization sets) is fetched from that address with your normal sign-in, the same way your browser would open it.
+- Email drafts open in the mail service you chose; the draft's text travels in the link to that service. **Sync across computers**, if you turn it on, copies only your My apps list (names, links, prompts, folders; no images) through your own Chrome sync.
 
 ---
 
