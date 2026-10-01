@@ -573,6 +573,7 @@ This suits teams, schools and clubs: one person maintains the file, and everyone
 - Settings, chats, notes, files and the action log are stored in your browser profile.
 - An app list you subscribe to (or your organization sets) is fetched from that address with your normal sign-in, the same way your browser would open it.
 - Email drafts open in the mail service you chose; the draft's text travels in the link to that service. **Sync across computers**, if you turn it on, copies only your My apps list (names, links, prompts, folders; no images) through your own Chrome sync.
+- The full policy is in the [privacy policy](https://github.com/rbughao/tootsy/blob/main/PRIVACY.md).
 
 ---
 
