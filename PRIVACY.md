@@ -26,6 +26,7 @@ Tootsy is a Chrome extension that connects your browser to an LLM endpoint **you
 - **App lists** you subscribe to, or that your organization sets, are downloaded from the address given, with your browser's normal sign-in for that site. Nothing about you is sent to it beyond what any page visit sends.
 - **Organization policy**: if your organization manages Tootsy, it can set company apps, default or locked settings and which AI servers are allowed. Tootsy only reads that policy; it reports nothing back.
 - **Email drafts** open in the mail service you choose (Gmail, Outlook or your mail app). The draft's recipient, subject and text travel in the link to that service, and you decide whether to send it.
+- **Privacy masking** (optional): when it's on and you use a cloud AI, email addresses, phone, card and bank account numbers, ID numbers and words you list are replaced with placeholders on your computer before anything is sent, and restored on your computer in the answer. The cloud AI never receives those values.
 - **Clipboard reading** is an optional permission, asked for only when a prompt tile uses `{{clipboard}}`, and used only to fill that blank.
 - **Page guard**: pages are checked, on your computer, for text that tries to instruct the assistant. Anything found is shown to you and noted in the local action log. Sites you choose to trust for typing are kept in your local settings.
 

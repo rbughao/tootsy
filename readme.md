@@ -151,6 +151,7 @@ To set it up by hand instead (or to use a paid service):
 | Setting | Where | What it does |
 |---|---|---|
 | **Theme** | Appearance | Light, dark or follow your system. |
+| **Show suggestions for the page you're on** | Appearance | One-tap request chips above the message box. |
 | **Automation mode** | Automation | Tootsy clicks and types without asking each time. Off by default. See [2.3](#23-run-a-task-hands-free). |
 | **Send when I stop speaking** | Voice input | Dictated messages send by themselves after 3 seconds of silence. |
 | **A separate chat per browser tab** | Sessions | Each browser tab keeps its own conversation. Turn it off to keep one conversation across all tabs. |
@@ -175,7 +176,7 @@ Tootsy's buttons, menus and settings are available in **English, Español, Portu
 
 Type a question in the box at the bottom and press **Enter**. Tootsy reads the page you're on and answers from what's actually there.
 
-<p align="center"><img src="images/screenshot-1-ask-about-page.png" alt="Tootsy answering which earbuds to buy from a review article, with a comparison table" width="820"></p>
+<p align="center"><img src="images/ask-about-page.png" alt="Tootsy answering which earbuds to buy from a review article, with a comparison table" width="820"></p>
 
 Things to try:
 - "Summarise this in five bullet points."
@@ -187,11 +188,13 @@ Things to try:
 
 Tootsy also reads PDFs opened in a tab, content inside frames, and pages in other open tabs.
 
+**Not sure what to ask?** Above the message box, Tootsy suggests a few one-tap requests that fit the page you're on: *Summarise* and *Key points* on an article, *Fill this form* on a form, *Compare prices* and *Watch the price* on a product page, *Find the key dates* in a PDF, *Draft a reply* on an email or ticket, and *Explain the selection* when you've selected text. Your own prompt tiles join in when they mention the site you're on or you use them often. Click a chip to send it, or right-click (or hold) to put it in the message box and edit it first. The suggestions disappear once the conversation starts; ✕ hides them for that page, and Settings → Appearance turns them off.
+
 ### 2.2 Let Tootsy act on a page
 
 Ask Tootsy to do something, and it clicks, types, picks from dropdowns, ticks boxes and fills whole forms. Before each action, a chip shows exactly what it's about to do:
 
-<p align="center"><img src="images/screenshot-3-fill-form.png" alt="Tootsy asking for approval before filling a registration form with five fields" width="820"></p>
+<p align="center"><img src="images/fill-form-approval.png" alt="Tootsy asking for approval before filling a registration form with five fields" width="820"></p>
 
 - **Approve** allows this one action.
 - **Approve all fill_form this reply** allows the same kind of action for the rest of this answer.
@@ -356,6 +359,7 @@ Settings → **Safety** holds the controls that decide what Tootsy may do:
   <img src="images/safety-settings.png" alt="Safety settings: protected sites, always-ask sites, page guard and trusted sites" width="300">
 </p>
 
+- **Mask personal data before it goes to a cloud AI** (off by default): when you use a cloud service such as OpenAI, Claude or Gemini, Tootsy swaps email addresses, phone numbers, card and bank account numbers and ID numbers for placeholders like `[EMAIL_1]` before anything is sent, and puts the real values back in its answers, email drafts and form fills. Add your own words too (client names, project codenames) under **Also mask these words**. Each answer shows a 🛡 note saying what was masked, and the action log records it. Models on your computer or your private network are left alone, because nothing leaves it. It catches those formats and your word list, not every name in free text, and it can't mask text inside a screenshot.
 - **Action log**: **⋮ → Action log** lists every click, form fill, navigation, script and export Tootsy performed, including the ones you declined or it refused. **Export CSV** saves it.
 
 <p align="center"><img src="images/action-log.png" alt="The action log listing recent clicks, form fills and a blocked action on a protected site" width="320"></p>
@@ -538,6 +542,7 @@ Put your daily sites and prompt tiles in My apps, group them into folders (*Morn
 | **Policy changes** | Watch a regulator's or supplier's terms page; get told when it changes. |
 | **Audit trail** | The action log records every click, form fill, navigation and export, and exports to CSV. |
 | **Guardrails** | Protected sites, always-ask sites and the page guard against hidden instructions are on for everyone, and can be locked by policy. |
+| **Privacy masking** | Turn on masking and lock it by policy: email addresses, phone, card and account numbers, ID numbers and your client names are replaced with placeholders before anything reaches a cloud AI. |
 | **Data governance** | Point Tootsy at a company-approved model (a local Ollama or an internal gateway) and allow only that server, so page content and files never leave the company. |
 
 #### Managers and leadership
@@ -634,6 +639,7 @@ Chrome and Edge let IT configure an extension from the admin console. With Toots
 - **Set defaults or lock settings** such as the AI server, model, protected sites and safety options. Locked settings show 🔒 *Set by your organization* and can't be changed.
 - **Allow only approved AI servers**, so page content and files never go to an unapproved service.
 - **Turn off hands-free runs** (automation mode, hands-free tiles and scheduled background runs).
+- **Require privacy masking**: set `redactCloud` to `true` (and a company word list in `redactTerms`) and lock both, so personal data and client names never reach a cloud AI.
 
 <p align="center">
   <img src="images/company-apps-policy.png" alt="My apps with a locked Acme apps section, a subscribed Team tools section and the user's own apps" width="280">
@@ -679,7 +685,7 @@ On **Windows** you can set the same keys in the registry under `HKLM\Software\Po
 | `appsTitle` | The heading above them. Default: *Company apps*. |
 | `appsUrl` | An address of a Tootsy apps file (or bookmarks `.html`) everyone follows. It's fetched with the user's sign-in, so it can live on the intranet. |
 | `settings` | Defaults. Each one fills a setting the user hasn't set yet. |
-| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`. |
+| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`, `redactCloud`, `redactTerms`, `suggestChips`. |
 | `allowedEndpoints` | AI servers Tootsy may use, by host name. A request to anything else is refused with a clear message. |
 | `allowHandsFree` | `false` turns off automation mode, hands-free tiles and scheduled background runs. |
 
