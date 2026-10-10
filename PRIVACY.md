@@ -28,11 +28,12 @@ Tootsy is a Chrome extension that connects your browser to an LLM endpoint **you
 - **Email drafts** open in the mail service you choose (Gmail, Outlook or your mail app). The draft's recipient, subject and text travel in the link to that service, and you decide whether to send it.
 - **Privacy masking** (optional): when it's on and you use a cloud AI, email addresses, phone, card and bank account numbers, ID numbers and words you list are replaced with placeholders on your computer before anything is sent, and restored on your computer in the answer. The cloud AI never receives those values.
 - **Clipboard reading** is an optional permission, asked for only when a prompt tile uses `{{clipboard}}`, and used only to fill that blank.
+- **Security hardening**: the checks in Settings → Security hardening (hidden characters, outbound addresses, files and notes, step limit) run on your computer. Images in answers are only downloaded when you click **Load**, unless you switch that off.
 - **Page guard**: pages are checked, on your computer, for text that tries to instruct the assistant. Anything found is shown to you and noted in the local action log. Sites you choose to trust for typing are kept in your local settings.
 
 ## Data retention and deletion
 
-Everything lives in your Chrome profile (and, only if you turn on My apps sync, your My apps list in your Chrome sync storage). Delete chats, notes, tasks, files or the action log from the panel, use **Backup → Export** to take a copy, or remove the extension to delete all of it. Backups you export contain your API keys — treat them as secrets.
+Everything lives in your Chrome profile (and, only if you turn on My apps sync, your My apps list in your Chrome sync storage). Delete chats, notes, tasks, files or the action log from the panel, use **Backup → Export** to take a copy, or remove the extension to delete all of it. You can have chats deleted automatically after a number of days (Settings → Security hardening; off by default). Backups you export leave out your API keys by default; if you switch that off, the backup contains them, so treat it as a secret.
 
 ## Contact
 

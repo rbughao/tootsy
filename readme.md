@@ -39,6 +39,7 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [More tools](#28-more-tools)
    - [Chats and sessions](#29-chats-and-sessions)
    - [Stay in control](#210-stay-in-control)
+   - [Security hardening](#2101-security-hardening)
    - [Move Tootsy to another computer](#211-move-tootsy-to-another-computer)
 3. [Use cases](#3-use-cases)
    - [Personal](#31-personal)
@@ -364,6 +365,28 @@ Settings → **Safety** holds the controls that decide what Tootsy may do:
 
 <p align="center"><img src="images/action-log.png" alt="The action log listing recent clicks, form fills and a blocked action on a protected site" width="320"></p>
 
+### 2.10.1 Security hardening
+
+Settings → **Security hardening** holds extra protections taken from the [OWASP Top 10 for LLM Applications (2026)](https://genai.owasp.org/). The section starts collapsed and shows how many protections are on (for example *8 of 13 on*); click its title to open it. Each one is a switch. The ones that cost you nothing start **on**. The ones that add questions, delete data or limit what Tootsy can do start **off**, so you can turn them on when you want them.
+
+| Switch | Default | What it stops | OWASP |
+|---|---|---|---|
+| Don't load images in answers | On | A tricked answer can't send your data out through a picture that loads by itself. Images show as a **🖼 Load** button. | LLM10, LLM02 |
+| Remove hidden characters | On | Invisible characters that hide instructions in pages, files or replies, or make an approval chip differ from what really runs. | LLM01 |
+| Ask before sending data to addresses Tootsy built itself | On | Once a reply has read your files, notes, history or tabs, Tootsy asks before it opens a web address or runs a search it put together itself. Addresses you typed, or that a page showed, are fine. | LLM01, LLM02 |
+| Check files and notes for hidden instructions | On | Your documents and saved notes get the same check as web pages. | LLM09, LLM01 |
+| Ask before saving to memory | On | Every future chat reads your notes, so a web page can't plant one without you. Background runs never save notes. | LLM05 |
+| Step limit per reply | 60 | A runaway task stops, sums up what it did, and waits for you to say "continue". 0 = no limit. | LLM06 |
+| Subscribed app lists can't run prompts hands-free or on a timer | On | A list address someone else controls can't push a prompt that acts on its own. Lists your IT sets by policy are not affected. | LLM04 |
+| Leave API keys out of backups | On | Backups often end up in email or shared drives. Importing a backup keeps the key you already have. | LLM02 |
+| Scheduled runs are read-only | Off | Background runs can read, check and notify, but can't click, type, submit, save or send. | LLM03 |
+| Hide typed values in the action log | Off | The log still says what was done and where, but not what was typed. | LLM02 |
+| Delete chats older than N days | 0 (keep) | Chats you haven't touched for that long are deleted at startup and once a day. | LLM02 |
+| Don't read protected sites either | Off | Pages on your protected-sites list are neither acted on nor read, so their content never reaches the AI. | LLM02 |
+| Ask for sources in answers | Off | Tootsy backs claims with a quote or the file they came from, and says when it isn't sure. | LLM07 |
+
+Links in answers also show their full address when you hover over them, so you can see where a link really goes before you click. IT can set and lock every switch through policy (see [For IT](#34-for-it-manage-tootsy-with-browser-policy)).
+
 ### 2.11 Move Tootsy to another computer
 
 | You want… | Do this |
@@ -639,6 +662,7 @@ Chrome and Edge let IT configure an extension from the admin console. With Toots
 - **Set defaults or lock settings** such as the AI server, model, protected sites and safety options. Locked settings show 🔒 *Set by your organization* and can't be changed.
 - **Allow only approved AI servers**, so page content and files never go to an unapproved service.
 - **Turn off hands-free runs** (automation mode, hands-free tiles and scheduled background runs).
+- **Harden Tootsy for your security baseline**: set the [security hardening](#2101-security-hardening) switches, for example `secReadOnlyBackground: true`, `secChatRetentionDays: 30` and `secMaxSteps: 40`, and lock them.
 - **Require privacy masking**: set `redactCloud` to `true` (and a company word list in `redactTerms`) and lock both, so personal data and client names never reach a cloud AI.
 
 <p align="center">
@@ -685,7 +709,7 @@ On **Windows** you can set the same keys in the registry under `HKLM\Software\Po
 | `appsTitle` | The heading above them. Default: *Company apps*. |
 | `appsUrl` | An address of a Tootsy apps file (or bookmarks `.html`) everyone follows. It's fetched with the user's sign-in, so it can live on the intranet. |
 | `settings` | Defaults. Each one fills a setting the user hasn't set yet. |
-| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`, `redactCloud`, `redactTerms`, `suggestChips`. |
+| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`, `redactCloud`, `redactTerms`, `suggestChips`, and the security hardening switches `secBlockImages`, `secStripHidden`, `secOutboundGuard`, `secScanFiles`, `secConfirmMemory`, `secMaxSteps`, `secSubsSafe`, `secBackupNoKeys`, `secReadOnlyBackground`, `secLogNoValues`, `secChatRetentionDays`, `secNoReadProtected`, `secRequireSources`. |
 | `allowedEndpoints` | AI servers Tootsy may use, by host name. A request to anything else is refused with a clear message. |
 | `allowHandsFree` | `false` turns off automation mode, hands-free tiles and scheduled background runs. |
 
@@ -727,7 +751,7 @@ This suits teams, schools and clubs: one person maintains the file, and everyone
 
 - Tootsy sends page content, your messages and your files **only to the model endpoint you choose**. With a local model, nothing leaves your computer.
 - The developer runs no servers and collects nothing: no analytics, no tracking, no account.
-- Settings, chats, notes, files and the action log are stored in your browser profile.
+- Settings, chats, notes, files and the action log are stored in your browser profile. Settings → Security hardening can delete old chats for you and leaves API keys out of backups by default.
 - An app list you subscribe to (or your organization sets) is fetched from that address with your normal sign-in, the same way your browser would open it.
 - Email drafts open in the mail service you chose; the draft's text travels in the link to that service. **Sync across computers**, if you turn it on, copies only your My apps list (names, links, prompts, folders; no images) through your own Chrome sync.
 - The full policy is in the [privacy policy](https://github.com/rbughao/tootsy/blob/main/PRIVACY.md).
