@@ -104,7 +104,7 @@ Tootsy works with any model that supports *tool calling*. That's how it reads pa
 The first time you open Tootsy, it looks for an AI model on your computer and offers the next step:
 
 <p align="center">
-  <img src="images/setup-helper.png" alt="First-run helper: Let's get you an AI model, with Get Ollama, check again and cloud buttons" width="280">
+  <img src="images/setup-helper.png" alt="First-run helper: Let's get you an AI model, with Get Ollama, check again and Use a cloud AI instead" width="280">
   &nbsp;
   <img src="images/setup-helper-ready.png" alt="First-run helper: Ollama is running, with a Use gemma4:e4b button" width="280">
 </p>
@@ -112,9 +112,42 @@ The first time you open Tootsy, it looks for an AI model on your computer and of
 - **Nothing installed yet:** click **Get Ollama (free)**, install it, then **I've installed it, check again**.
 - **Ollama is running but has no models:** click **Download gemma4:e4b**. A progress bar shows the download; when it finishes, Tootsy is set up.
 - **Ollama or LM Studio is running with a model:** click **Use …** and you're done.
-- **Prefer a cloud service?** Click **Use a cloud service** and follow the steps below.
+- **Rather not install anything?** Click **Use a cloud AI instead**. See [Use a cloud AI](#use-a-cloud-ai) below.
 
-To set it up by hand instead (or to use a paid service):
+#### Use a cloud AI
+
+Tootsy walks you through it in the same card, without opening settings:
+
+1. **Pick a service:** OpenAI, Anthropic (Claude), Google Gemini, or **Other service** (OpenRouter, Groq or your company's AI server).
+2. **Get an API key:** the **Get a … key ↗** button opens that service's key page. Sign in, choose *Create key* and copy it. OpenAI and Anthropic bill per use, so add a little credit first; Google Gemini has a free tier.
+3. **Paste the key** and click **Connect**. Paste the key you copied; extra spaces, quotes or line breaks are removed for you. If it's from a different service than the one you picked, Tootsy notices and switches.
+
+Tootsy checks the key, picks a good model for browsing (Claude Sonnet, a GPT mini model or Gemini Flash) and says **✓ Connected**. You can change the model any time from the picker under the message box. It also offers to turn on [privacy masking](#210-stay-in-control), since pages you ask about now go to that service.
+
+<p align="center">
+  <img src="images/cloud-setup-choose.png" alt="Connect a cloud AI: cards for OpenAI, Anthropic, Google Gemini and Other service" width="200">
+  &nbsp;
+  <img src="images/cloud-setup-key.png" alt="Step 1 Get an API key with a Get an Anthropic key button; step 2 Paste the key here, and Connect" width="200">
+  &nbsp;
+  <img src="images/cloud-setup-ready.png" alt="Connected to Anthropic, using claude-sonnet-5-5, with an offer to turn on privacy masking and a Start chatting button" width="200">
+</p>
+
+If something goes wrong, the card says what to do in plain words:
+
+| You see | What to do |
+|---|---|
+| *didn't accept that key* | Copy the key again from the key page (the whole key) and paste it. The card says what that service's keys start with. |
+| *no credit left or reached its limit* | Add credit on the service's billing page (the card links to it), then **Connect** again. |
+| *Couldn't reach …* | Check your internet connection. At work, ask IT to allow that address. |
+| *Your organization only allows these AI servers* | Your company limits which AI services Tootsy may use. Pick one of those, or ask IT. |
+
+<p align="center"><img src="images/cloud-setup-error.png" alt="A wrong key: the card explains the key wasn't accepted and links to the key page" width="200"></p>
+
+Your key is stored only in this browser and sent only to the service it belongs to. By default it's left out of backups (see [Security hardening](#2101-security-hardening)).
+
+#### Set it up by hand
+
+To set it up by hand instead (for example LM Studio, or a server with special settings):
 
 1. Click **Open settings** (under **Set it up by hand**). You can also open settings any time with the sliders icon next to the send button.
 2. Under **LLM configuration**, fill in **Base URL endpoint**:
