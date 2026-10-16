@@ -1,0 +1,202 @@
+{
+  "app": "tootsy",
+  "kind": "apps",
+  "version": 2,
+  "title": "Sales starter",
+  "description": "CRM, prospecting and meeting tools, plus prompts for account research, outreach emails, call follow-ups, objection handling and meeting prep.",
+  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "apps": [
+    {
+      "type": "folder",
+      "name": "CRM",
+      "items": [
+        {
+          "name": "Salesforce",
+          "url": "https://login.salesforce.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "☁️",
+            "color": "#0284c7"
+          }
+        },
+        {
+          "name": "HubSpot",
+          "url": "https://app.hubspot.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧡",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "name": "Pipedrive",
+          "url": "https://app.pipedrive.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🟢",
+            "color": "#15803d"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Prospecting",
+      "items": [
+        {
+          "name": "Sales Navigator",
+          "url": "https://www.linkedin.com/sales/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧭",
+            "color": "#0a66c2"
+          }
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "💼",
+            "color": "#1d4ed8"
+          }
+        },
+        {
+          "name": "Crunchbase",
+          "url": "https://www.crunchbase.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🏢",
+            "color": "#0369a1"
+          }
+        },
+        {
+          "name": "Google News",
+          "url": "https://news.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📰",
+            "color": "#334155"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Meetings",
+      "items": [
+        {
+          "name": "Zoom",
+          "url": "https://zoom.us/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🎥",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "name": "Google Meet",
+          "url": "https://meet.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📹",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "name": "Calendly",
+          "url": "https://calendly.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📅",
+            "color": "#0369a1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "name": "Account research",
+      "prompt": "Research {{ask: Company? | the company on this page}}: what they do, size, news from the last 6 months, likely priorities, the roles that usually decide on a purchase like ours, and 3 conversation openers.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🔎",
+        "color": "#0369a1"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Prospect email",
+      "prompt": "Write a short first email to the person on this profile: a personal hook from their profile, the problem we solve, one proof point and a soft ask. Under 120 words, with 2 subject lines. Open it as a draft in my mail app.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "✉️",
+        "color": "#db2777"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Follow-up after a call",
+      "prompt": "Turn these call notes into a follow-up email: a recap of their needs, what we agreed, next steps with dates and anything we promised to send. Open it as a draft.\n\n{{selection}}",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📞",
+        "color": "#16a34a"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Handle an objection",
+      "prompt": "The prospect said: {{ask: What was the objection?}} Give 3 ways to respond (acknowledge, ask a question, share evidence), with example wording for each.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🛡️",
+        "color": "#7c3aed"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Meeting prep",
+      "prompt": "Prepare me for a meeting with {{ask: Who, and which company?}}: background, recent news, likely goals, good questions to ask, and risks. Keep it to one page.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🗓️",
+        "color": "#ea580c"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Log the call in CRM",
+      "prompt": "Fill the CRM form on this page with the details from this call: {{ask: Call summary?}} Show me what you will enter before saving anything.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📝",
+        "color": "#0284c7"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Competitor compare",
+      "prompt": "Compare us with the competitor on this page: features, pricing, target customer, strengths and weaknesses, and talk tracks for when a prospect mentions them.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "⚖️",
+        "color": "#334155"
+      }
+    }
+  ]
+}

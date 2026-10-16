@@ -1,0 +1,229 @@
+{
+  "app": "tootsy",
+  "kind": "apps",
+  "version": 2,
+  "title": "Digital marketing starter",
+  "description": "Analytics, ads and social tools, plus prompts for SEO checks, ad copy, social posts and reports.",
+  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "apps": [
+    {
+      "type": "folder",
+      "name": "Analytics & ads",
+      "items": [
+        {
+          "name": "Google Analytics",
+          "url": "https://analytics.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📊",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "name": "Search Console",
+          "url": "https://search.google.com/search-console",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔎",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "name": "Google Ads",
+          "url": "https://ads.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📣",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "name": "Meta Business Suite",
+          "url": "https://business.facebook.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "👥",
+            "color": "#1d4ed8"
+          }
+        },
+        {
+          "name": "LinkedIn Campaigns",
+          "url": "https://www.linkedin.com/campaignmanager/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "💼",
+            "color": "#0a66c2"
+          }
+        },
+        {
+          "name": "Google Trends",
+          "url": "https://trends.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📈",
+            "color": "#0891b2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Create & publish",
+      "items": [
+        {
+          "name": "Canva",
+          "url": "https://www.canva.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🎨",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "name": "Mailchimp",
+          "url": "https://mailchimp.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "✉️",
+            "color": "#ca8a04"
+          }
+        },
+        {
+          "name": "Buffer",
+          "url": "https://buffer.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗓️",
+            "color": "#334155"
+          }
+        },
+        {
+          "name": "Business Profile",
+          "url": "https://business.google.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📍",
+            "color": "#dc2626"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Check & test",
+      "items": [
+        {
+          "name": "PageSpeed Insights",
+          "url": "https://pagespeed.web.dev/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "⚡",
+            "color": "#f59e0b"
+          }
+        },
+        {
+          "name": "Rich Results Test",
+          "url": "https://search.google.com/test/rich-results",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧩",
+            "color": "#0f766e"
+          }
+        },
+        {
+          "name": "Meta Ad Library",
+          "url": "https://www.facebook.com/ads/library/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗂️",
+            "color": "#4f46e5"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "name": "SEO check this page",
+      "prompt": "Check this page ({{page}}) for SEO: title tag and meta description (with their lengths), heading structure, image alt text, internal links and anything that slows it down. List the 5 fixes with the most impact first, and give the exact new text where a rewrite helps.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🔎",
+        "color": "#2563eb"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Social posts from page",
+      "prompt": "Read this page and write three posts about it: one for LinkedIn (professional, under 1,300 characters), one for X (under 280 characters) and an Instagram caption with 5 relevant hashtags. Use only facts from the page.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📱",
+        "color": "#db2777"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Competitor teardown",
+      "prompt": "Read this competitor page and summarise: who it targets, the main offer, pricing signals, calls to action and proof (testimonials, logos, numbers). Put that in a table, then give 3 ideas we could test in response.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🕵️",
+        "color": "#7c3aed"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Ad copy variants",
+      "prompt": "Write 5 Google Ads headlines (30 characters max) and 4 descriptions (90 characters max) for {{ask: What are we promoting? | the product on this page}}. Show the character count after each line and vary the angle: benefit, urgency, proof, question, offer.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "✍️",
+        "color": "#16a34a"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Campaign brief",
+      "prompt": "Draft a one-page campaign brief for {{ask: Campaign name or goal?}}: objective, audience, key message, channels, budget split, KPIs and timeline. Ask me about anything important that is missing instead of guessing.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🧭",
+        "color": "#0891b2"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Rewrite in brand voice",
+      "prompt": "Rewrite this in a clear, warm, confident voice with no jargon, then give 2 shorter alternatives:\n\n{{selection}}",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🪄",
+        "color": "#ea580c"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Weekly report email",
+      "prompt": "From the dashboard on this page, pull the key numbers (traffic, conversions, spend, cost per acquisition, return on ad spend) and compare them with the previous period. Then draft a short email to {{ask: Who gets the report? | my manager}} with the highlights, one concern and next steps, and open it as a draft.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📬",
+        "color": "#334155"
+      }
+    }
+  ]
+}

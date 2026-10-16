@@ -36,6 +36,7 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Talk to Tootsy](#26-talk-to-tootsy)
    - [Ask about your own files](#27-ask-about-your-own-files)
    - [See where an answer came from](#271-see-where-an-answer-came-from)
+   - [Open and edit your files](#272-open-and-edit-your-files)
    - [More tools](#28-more-tools)
    - [Chats and sessions](#29-chats-and-sessions)
    - [Stay in control](#210-stay-in-control)
@@ -147,6 +148,8 @@ Your key is stored only in this browser and sent only to the service it belongs 
 
 #### Set it up by hand
 
+Already set up and want to switch, or stuck? **Settings → ✨ Guided setup…** opens the same card.
+
 To set it up by hand instead (for example LM Studio, or a server with special settings):
 
 1. Click **Open settings** (under **Set it up by hand**). You can also open settings any time with the sliders icon next to the send button.
@@ -254,6 +257,8 @@ Good hands-free tasks:
 
 My apps is a phone-style home screen for the sites you use most. It sits at the top of every new chat. Mid-chat, open it with the grid button in the header.
 
+> **New to Tootsy?** Start with a ready-made pack for your role (digital marketing, research, IT helpdesk, HR, developers, hotel front desk, finance or sales). Each has the tools that role uses most plus one-tap prompts. Get them from the [starter packs](https://github.com/rbughao/tootsy/tree/main/starter-packs) and load one with **⋯ → Import apps…**.
+
 <p align="center">
   <img src="images/my-apps.png" alt="My apps with site tiles, prompt tiles and folders" width="260">
   &nbsp;
@@ -351,11 +356,37 @@ Click **+** next to the message box and choose **Add files…** or **Add folder�
 - Answers name the files they came from. Click a source chip to see the exact passage.
 - Files belong to the chat you added them in. For reference material you want in every chat, turn on **Add new files to every chat (shared)** in settings under **Files** before adding it.
 - **Connect folder…** links a folder on your computer. Tootsy re-reads it when files change.
+- Click **Open** next to a file to edit it (see [Open and edit your files](#272-open-and-edit-your-files)).
 - For the best answers, set an **embedding model** (such as `nomic-embed-text`) in the Files settings. Without one, Tootsy falls back to keyword search.
 
 ### 2.7.1 See where an answer came from
 
 When Tootsy answers from the page you're on, click any line of the answer (a sentence, a bullet or a table row). Tootsy scrolls the page to the passage it came from and highlights it in yellow. If it can't find it, the answer probably came from another tab, a file or the model's own knowledge, and Tootsy says so.
+
+### 2.7.2 Open and edit your files
+
+Files you've added can be opened, changed and saved without leaving Chrome. Open **Settings → Files** and click **Open** next to a file, or click **Open in editor ↗** in a source passage under an answer. The file opens in its own tab, so the side panel stays free for chatting about it.
+
+<p align="center">
+  <img src="images/editor-open-files.png" alt="The Files list in settings, with Open next to each file and View next to a PDF" width="260">
+</p>
+
+<p align="center"><img src="images/editor-markdown.png" alt="The Tootsy editor with a Markdown file on the left and its preview on the right" width="640"></p>
+
+- **Text files** (Markdown, text, JSON, CSV, YAML, HTML, code) open ready to edit, with line numbers. Markdown shows a live **Preview** beside it.
+- **Save** (or **Ctrl+S**) updates Tootsy's copy straight away, so its answers use the new text.
+- **Files from a connected folder** are also saved to the file on your computer. The first time, Chrome asks to let Tootsy edit files in that folder. If the file changed on disk since Tootsy read it, you choose **Overwrite it** or **Load the disk version**.
+- **Other files** live only in Tootsy. Use **Download** to keep a copy on your computer.
+- **JSON** is checked before saving: you see the line with the mistake, and can still **Save anyway**. **Format JSON** tidies the layout.
+- **Word files** open as their text, without formatting. **Save as .md** creates a new file (for example *leave-policy.md*) and the original .docx is never changed.
+- **PDF, Excel and PowerPoint** open read-only. **Copy text** or **Save as .md** if you want an editable copy.
+- Unsaved changes show a **●** in the tab title, and Chrome warns you before closing the tab.
+
+<p align="center">
+  <img src="images/editor-json.png" alt="Invalid JSON on line 5 with Save anyway and Keep editing buttons" width="420">
+  &nbsp;
+  <img src="images/editor-word.png" alt="Editing a Word file's text, with a banner saying Save creates leave-policy.md and the .docx isn't changed" width="420">
+</p>
 
 ### 2.8 More tools
 
@@ -767,6 +798,7 @@ This suits teams, schools and clubs: one person maintains the file, and everyone
 |---|---|
 | "Ollama isn't running" | Start the Ollama app, or run `ollama serve` in a terminal. |
 | "Model not found" | Download it: `ollama pull gemma4:e4b`, then click **Fetch** in settings. |
+| "HTTP 404" or "Nothing was found at that address" | The Base URL doesn't match the service. Easiest fix: **Settings → ✨ Guided setup…**, pick your service and paste your key again. By hand: Google Gemini is `https://generativelanguage.googleapis.com` with provider **Google Gemini**; Anthropic is `https://api.anthropic.com`; OpenAI is `https://api.openai.com/v1`. Then click **Fetch** and pick a model. |
 | Tootsy answers without looking at the page | The model may not support tools; Tootsy shows a warning when that's the case. Choose a tool-capable model such as `gemma4`, `qwen2.5` or `llama3.1`. Very small models sometimes skip tools, so try a bigger one. |
 | Long pages get cut off (Ollama) | Use `http://localhost:11434` rather than `.../v1`, and leave **Context window** on Auto. |
 | "Cannot access this page" | Chrome doesn't let extensions read its own pages (`chrome://…`) or the Web Store. Try on a normal website. |

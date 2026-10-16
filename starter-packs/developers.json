@@ -1,0 +1,214 @@
+{
+  "app": "tootsy",
+  "kind": "apps",
+  "version": 2,
+  "title": "Developer starter",
+  "description": "Code hosting, docs and handy tools, plus prompts to review pull requests, explain code, debug errors and write tests.",
+  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "apps": [
+    {
+      "type": "folder",
+      "name": "Code & docs",
+      "items": [
+        {
+          "name": "GitHub",
+          "url": "https://github.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🐙",
+            "color": "#1f2937"
+          }
+        },
+        {
+          "name": "GitLab",
+          "url": "https://gitlab.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🦊",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "name": "Stack Overflow",
+          "url": "https://stackoverflow.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📚",
+            "color": "#f59e0b"
+          }
+        },
+        {
+          "name": "MDN Web Docs",
+          "url": "https://developer.mozilla.org/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🌐",
+            "color": "#1f2937"
+          }
+        },
+        {
+          "name": "DevDocs",
+          "url": "https://devdocs.io/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📖",
+            "color": "#334155"
+          }
+        },
+        {
+          "name": "npm",
+          "url": "https://www.npmjs.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "📦",
+            "color": "#dc2626"
+          }
+        },
+        {
+          "name": "PyPI",
+          "url": "https://pypi.org/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🐍",
+            "color": "#2563eb"
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Handy tools",
+      "items": [
+        {
+          "name": "regex101",
+          "url": "https://regex101.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔣",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "name": "crontab.guru",
+          "url": "https://crontab.guru/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "⏱️",
+            "color": "#0e7490"
+          }
+        },
+        {
+          "name": "Can I use",
+          "url": "https://caniuse.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "✅",
+            "color": "#ca8a04"
+          }
+        },
+        {
+          "name": "JWT debugger",
+          "url": "https://jwt.io/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔑",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "name": "GitHub Status",
+          "url": "https://www.githubstatus.com/",
+          "icon": {
+            "type": "emoji",
+            "emoji": "🚦",
+            "color": "#15803d"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "name": "Review this PR",
+      "prompt": "Review the pull request on this page for bugs, security issues, missing tests and readability. For each point, quote the file and line and suggest the fix. Separate must-fix items from nice-to-haves.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🔍",
+        "color": "#1f2937"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Explain this code",
+      "prompt": "Explain what this code does step by step, then point out edge cases and likely bugs:\n\n{{selection}}",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🧠",
+        "color": "#2563eb"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Debug this error",
+      "prompt": "Explain the likely cause of this error and give the fix, most likely first. Search the web for the exact message if that helps, and link the source.\n\n{{selection}}",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🐞",
+        "color": "#dc2626"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Ask the docs",
+      "prompt": "From this documentation page, answer: {{ask: What do you need to know?}} Include a minimal working code example and name the section it came from.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "📖",
+        "color": "#334155"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Write unit tests",
+      "prompt": "Write unit tests for this code using {{ask: Test framework? | the most common one for this language}}. Cover normal cases, edge cases and errors:\n\n{{selection}}",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🧪",
+        "color": "#16a34a"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Release notes",
+      "prompt": "Turn the commits or pull requests listed on this page into release notes grouped as Features, Fixes and Breaking changes, written for users rather than developers.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🚀",
+        "color": "#7c3aed"
+      }
+    },
+    {
+      "type": "prompt",
+      "name": "Regex helper",
+      "prompt": "Write a regular expression that matches {{ask: What should it match?}}. Explain each part, and give 3 strings that match and 3 that don't.",
+      "send": true,
+      "hands": false,
+      "icon": {
+        "type": "emoji",
+        "emoji": "🔣",
+        "color": "#0e7490"
+      }
+    }
+  ]
+}
