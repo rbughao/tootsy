@@ -4,11 +4,11 @@
   "version": 2,
   "title": "Hotel front desk starter",
   "description": "Booking extranets, reviews and guest-help sites, plus prompts for review replies, translations, local tips, guest emails and shift handovers.",
-  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "exportedAt": "2026-10-17T00:00:00.000Z",
   "apps": [
     {
       "type": "folder",
-      "name": "Bookings & reviews",
+      "name": "Front desk pack",
       "items": [
         {
           "name": "Booking.com extranet",
@@ -54,13 +54,7 @@
             "emoji": "📍",
             "color": "#dc2626"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Guest help",
-      "items": [
+        },
         {
           "name": "Google Maps",
           "url": "https://www.google.com/maps",
@@ -105,92 +99,92 @@
             "emoji": "🍽️",
             "color": "#b91c1c"
           }
+        },
+        {
+          "type": "prompt",
+          "name": "Reply to this review",
+          "prompt": "Draft a reply to the guest review on this page: thank the guest by name, answer each specific point (apologise where we fell short, without excuses), say what we are doing about it and invite them back. Under 120 words, in the same language as the review.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "⭐",
+            "color": "#ca8a04"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Translate for a guest",
+          "prompt": "Translate this into {{ask: Which language? | Spanish}} in a warm, polite hotel tone, then give a simple back-translation so I can check it:\n\n{{selection}}",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🌐",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Local recommendations",
+          "prompt": "Suggest options for {{ask: What does the guest want? | dinner}} near {{ask: Hotel address or area?}}: 5 places with walking distance, price level, today's opening hours and why each one fits. Use current information from the web.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗺️",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Guest email",
+          "prompt": "Draft a {{ask: Type of email? | pre-arrival welcome}} email for {{ask: Guest name and dates?}}: check-in time, parking, breakfast, Wi-Fi, and a line inviting special requests. Open it as a draft in my mail app.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "✉️",
+            "color": "#db2777"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Handle a complaint",
+          "prompt": "A guest says: {{ask: What is the complaint?}} Give me a calm script to respond (acknowledge, apologise, solve, follow up), 3 fair compensation options by severity, and what to log for the manager.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🤝",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Shift handover",
+          "prompt": "Turn these notes into a clear shift handover: arrivals and departures to watch, VIPs, open issues, maintenance, and tasks for the next shift.\n\n{{selection}}",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔁",
+            "color": "#334155"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Check a flight",
+          "prompt": "Check today's status of flight {{ask: Flight number?}}: expected arrival time, terminal and any delay, so we can plan the guest's check-in.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "✈️",
+            "color": "#0369a1"
+          }
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "name": "Reply to this review",
-      "prompt": "Draft a reply to the guest review on this page: thank the guest by name, answer each specific point (apologise where we fell short, without excuses), say what we are doing about it and invite them back. Under 120 words, in the same language as the review.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "⭐",
-        "color": "#ca8a04"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Translate for a guest",
-      "prompt": "Translate this into {{ask: Which language? | Spanish}} in a warm, polite hotel tone, then give a simple back-translation so I can check it:\n\n{{selection}}",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🌐",
-        "color": "#2563eb"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Local recommendations",
-      "prompt": "Suggest options for {{ask: What does the guest want? | dinner}} near {{ask: Hotel address or area?}}: 5 places with walking distance, price level, today's opening hours and why each one fits. Use current information from the web.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🗺️",
-        "color": "#16a34a"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Guest email",
-      "prompt": "Draft a {{ask: Type of email? | pre-arrival welcome}} email for {{ask: Guest name and dates?}}: check-in time, parking, breakfast, Wi-Fi, and a line inviting special requests. Open it as a draft in my mail app.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "✉️",
-        "color": "#db2777"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Handle a complaint",
-      "prompt": "A guest says: {{ask: What is the complaint?}} Give me a calm script to respond (acknowledge, apologise, solve, follow up), 3 fair compensation options by severity, and what to log for the manager.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🤝",
-        "color": "#7c3aed"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Shift handover",
-      "prompt": "Turn these notes into a clear shift handover: arrivals and departures to watch, VIPs, open issues, maintenance, and tasks for the next shift.\n\n{{selection}}",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🔁",
-        "color": "#334155"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Check a flight",
-      "prompt": "Check today's status of flight {{ask: Flight number?}}: expected arrival time, terminal and any delay, so we can plan the guest's check-in.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "✈️",
-        "color": "#0369a1"
-      }
     }
   ]
 }

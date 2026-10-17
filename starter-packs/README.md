@@ -1,19 +1,19 @@
 # Tootsy starter packs
 
-Ready-made **My apps** lists for common roles. Each pack is one file holding links to the tools that role uses most, grouped into folders, plus **prompt tiles**. A prompt tile is a saved instruction you run with one tap, such as "Reply to this review" or "Summarise this paper".
+Ready-made **My apps** lists for common roles. Each pack is one file that adds **a single folder** to My apps, such as *Sales pack*, so it never crowds the apps you already have. Inside are links to the tools that role uses most, plus **prompt tiles**. A prompt tile is a saved instruction you run with one tap, such as "Reply to this review" or "Summarise this paper".
 
 Download the pack for your role, import it, and you're set up in a minute. Change anything afterwards: rename, remove, rearrange, or add your company's own tools.
 
-| Pack | For | Link folders | Prompt tiles |
+| Pack | For | Folder and links | Prompt tiles |
 |---|---|---|---|
-| [digital-marketing.json](digital-marketing.json) | Digital marketers | Analytics & ads, Create & publish, Check & test (13 links) | SEO check this page · Social posts from page · Competitor teardown · Ad copy variants · Campaign brief · Rewrite in brand voice · Weekly report email |
-| [research.json](research.json) | Researchers | Find papers, Data & statistics, Write & cite (12 links) | Summarise this paper · Extract the methods · Compare my sources · Cite this page · Explain simply · Find related work · Literature notes |
-| [it-helpdesk.json](it-helpdesk.json) | Helpdesk and IT support | Service status, Admin consoles, Security checks (13 links) | Triage this ticket · Reply to the user · Is it an outage? · Write a KB article · Explain this error · Phishing check · Onboarding checklist |
-| [human-resources.json](human-resources.json) | Human resources | Recruiting, People & policy (8 links) | Screen this CV · Write a job ad · Answer from policy · Interview scorecard · 30-60-90 onboarding · Candidate email · Summarise feedback |
-| [developers.json](developers.json) | Developers | Code & docs, Handy tools (12 links) | Review this PR · Explain this code · Debug this error · Ask the docs · Write unit tests · Release notes · Regex helper |
-| [hotel-front-desk.json](hotel-front-desk.json) | Hotel front desks | Bookings & reviews, Guest help (10 links) | Reply to this review · Translate for a guest · Local recommendations · Guest email · Handle a complaint · Shift handover · Check a flight |
-| [finance.json](finance.json) | Finance teams | Markets & rates, Filings & standards, Accounting (9 links) | Summarise this report · Check an invoice · Fill an expense claim · Variance analysis · Convert currency · Month-end checklist · Explain a term |
-| [sales.json](sales.json) | Sales teams | CRM, Prospecting, Meetings (10 links) | Account research · Prospect email · Follow-up after a call · Handle an objection · Meeting prep · Log the call in CRM · Competitor compare |
+| [digital-marketing.json](digital-marketing.json) | Digital marketers | **Marketing pack**: 13 links | SEO check this page · Social posts from page · Competitor teardown · Ad copy variants · Campaign brief · Rewrite in brand voice · Weekly report email |
+| [research.json](research.json) | Researchers | **Research pack**: 12 links | Summarise this paper · Extract the methods · Compare my sources · Cite this page · Explain simply · Find related work · Literature notes |
+| [it-helpdesk.json](it-helpdesk.json) | Helpdesk and IT support | **IT helpdesk pack**: 13 links | Triage this ticket · Reply to the user · Is it an outage? · Write a KB article · Explain this error · Phishing check · Onboarding checklist |
+| [human-resources.json](human-resources.json) | Human resources | **HR pack**: 8 links | Screen this CV · Write a job ad · Answer from policy · Interview scorecard · 30-60-90 onboarding · Candidate email · Summarise feedback |
+| [developers.json](developers.json) | Developers | **Developer pack**: 12 links | Review this PR · Explain this code · Debug this error · Ask the docs · Write unit tests · Release notes · Regex helper |
+| [hotel-front-desk.json](hotel-front-desk.json) | Hotel front desks | **Front desk pack**: 10 links | Reply to this review · Translate for a guest · Local recommendations · Guest email · Handle a complaint · Shift handover · Check a flight |
+| [finance.json](finance.json) | Finance teams | **Finance pack**: 9 links | Summarise this report · Check an invoice · Fill an expense claim · Variance analysis · Convert currency · Month-end checklist · Explain a term |
+| [sales.json](sales.json) | Sales teams | **Sales pack**: 10 links | Account research · Prospect email · Follow-up after a call · Handle an objection · Meeting prep · Log the call in CRM · Competitor compare |
 
 ## Add a pack to Tootsy
 
@@ -25,19 +25,19 @@ Download the pack for your role, import it, and you're set up in a minute. Chang
 
 <p align="center"><img src="images/2-import-menu.png" alt="The My apps menu in Tootsy with Import apps… marked" width="300"></p>
 
-**3. That's it.** The pack's link folders and prompt tiles appear in My apps next to your own. Nothing you already have is replaced, and folders with the same name are merged. The ▶ badge marks a prompt tile.
+**3. That's it.** The pack appears as one folder in My apps, next to your own apps. Nothing you already have is moved or replaced. Open the folder to see its links, followed by its prompt tiles (marked ▶).
 
 <p align="center">
-  <img src="images/3-imported.png" alt="My apps after importing the Sales pack: CRM, Prospecting and Meetings folders, and prompt tiles such as Account research and Prospect email" width="300">
+  <img src="images/3-imported.png" alt="My apps after importing the Sales pack: the user's Mail, Calendar and News, plus one new Sales pack folder" width="300">
   &nbsp;
-  <img src="images/4-open-folder.png" alt="The Prospecting folder open, with Sales Navigator, LinkedIn, Crunchbase and Google News" width="300">
+  <img src="images/4-open-folder.png" alt="The Sales pack folder open: Salesforce, HubSpot, Pipedrive, Sales Navigator, LinkedIn, Crunchbase, Google News, Zoom, Google Meet and Calendly, then prompt tiles such as Account research and Prospect email" width="300">
 </p>
 
-**4. Use it.** Tap a folder to open its links, or tap a prompt tile on the page you're working on. Tiles that need a detail ask for it first, often with a suggested answer you can keep or change.
+**4. Use it.** Open the folder and tap a link, or tap a prompt tile while you're on the page you want it to work on. Tiles that need a detail ask for it first, often with a suggested answer you can keep or change.
 
 <p align="center"><img src="images/5-run-a-tile.png" alt="The Account research tile asking which company, with “the company on this page” filled in, and Run and Cancel buttons" width="300"></p>
 
-You can import several packs; a sales manager might add both **Sales** and **Finance**, for example.
+You can import several packs; each gets its own folder. A sales manager might add both **Sales pack** and **Finance pack**, for example. To take a tile out of a pack, right-click it in the folder and choose **Move…**. Right-click the folder itself to **Rename…** it, **Ungroup** it (its apps move into My apps), or **Remove folder and its apps** if you no longer need the pack.
 
 ### Or subscribe, to get updates automatically
 

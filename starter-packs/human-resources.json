@@ -4,11 +4,11 @@
   "version": 2,
   "title": "HR starter",
   "description": "Recruiting and people tools, plus prompts for fair CV screening, job ads, policy answers, scorecards and onboarding plans.",
-  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "exportedAt": "2026-10-17T00:00:00.000Z",
   "apps": [
     {
       "type": "folder",
-      "name": "Recruiting",
+      "name": "HR pack",
       "items": [
         {
           "name": "LinkedIn Recruiter",
@@ -54,13 +54,7 @@
             "emoji": "📅",
             "color": "#0369a1"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "People & policy",
-      "items": [
+        },
         {
           "name": "SHRM",
           "url": "https://www.shrm.org/",
@@ -87,92 +81,92 @@
             "emoji": "🗳️",
             "color": "#0e7490"
           }
+        },
+        {
+          "type": "prompt",
+          "name": "Screen this CV",
+          "prompt": "Compare the CV or profile on this page with the role {{ask: Which role? | the job description in my files}}: must-have skills met and missing, relevant experience, and gaps to explore, plus 5 tailored interview questions. Judge only job-related evidence; ignore age, gender, ethnicity, photos and other protected characteristics.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📄",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Write a job ad",
+          "prompt": "Write an inclusive job ad for {{ask: Job title?}}: a short summary, 6 responsibilities, must-haves separated from nice-to-haves, benefits and how to apply. Avoid gendered or exclusionary wording.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📢",
+            "color": "#16a34a"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Answer from policy",
+          "prompt": "Search my files (policies, handbook) and answer this employee question: {{ask: The question?}} Quote the policy section and name the file. If the files don't cover it, say so.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📘",
+            "color": "#0f766e"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Interview scorecard",
+          "prompt": "Create a structured interview scorecard for {{ask: Role?}}: 5 competencies, 2 questions for each, and a 1 to 5 rating guide that describes what each score looks like.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗂️",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "30-60-90 onboarding",
+          "prompt": "Draft a 30-60-90 day onboarding plan for {{ask: Role and team?}} with goals, key meetings, training and check-ins for each stage.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧭",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Candidate email",
+          "prompt": "Draft a warm email to the candidate on this page to {{ask: Purpose? | invite them to an interview}}, with clear next steps and a placeholder for times. Open it as a draft in my mail app.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "✉️",
+            "color": "#db2777"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Summarise feedback",
+          "prompt": "Summarise the survey or feedback on this page: the top themes, overall sentiment, a few representative quotes (no names) and 3 suggested actions.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💬",
+            "color": "#334155"
+          }
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "name": "Screen this CV",
-      "prompt": "Compare the CV or profile on this page with the role {{ask: Which role? | the job description in my files}}: must-have skills met and missing, relevant experience, and gaps to explore, plus 5 tailored interview questions. Judge only job-related evidence; ignore age, gender, ethnicity, photos and other protected characteristics.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📄",
-        "color": "#2563eb"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Write a job ad",
-      "prompt": "Write an inclusive job ad for {{ask: Job title?}}: a short summary, 6 responsibilities, must-haves separated from nice-to-haves, benefits and how to apply. Avoid gendered or exclusionary wording.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📢",
-        "color": "#16a34a"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Answer from policy",
-      "prompt": "Search my files (policies, handbook) and answer this employee question: {{ask: The question?}} Quote the policy section and name the file. If the files don't cover it, say so.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📘",
-        "color": "#0f766e"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Interview scorecard",
-      "prompt": "Create a structured interview scorecard for {{ask: Role?}}: 5 competencies, 2 questions for each, and a 1 to 5 rating guide that describes what each score looks like.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🗂️",
-        "color": "#7c3aed"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "30-60-90 onboarding",
-      "prompt": "Draft a 30-60-90 day onboarding plan for {{ask: Role and team?}} with goals, key meetings, training and check-ins for each stage.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🧭",
-        "color": "#ea580c"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Candidate email",
-      "prompt": "Draft a warm email to the candidate on this page to {{ask: Purpose? | invite them to an interview}}, with clear next steps and a placeholder for times. Open it as a draft in my mail app.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "✉️",
-        "color": "#db2777"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Summarise feedback",
-      "prompt": "Summarise the survey or feedback on this page: the top themes, overall sentiment, a few representative quotes (no names) and 3 suggested actions.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💬",
-        "color": "#334155"
-      }
     }
   ]
 }

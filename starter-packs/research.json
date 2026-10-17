@@ -4,11 +4,11 @@
   "version": 2,
   "title": "Research starter",
   "description": "Paper search, data sources and citation tools, plus prompts to summarise papers, compare sources and cite pages.",
-  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "exportedAt": "2026-10-17T00:00:00.000Z",
   "apps": [
     {
       "type": "folder",
-      "name": "Find papers",
+      "name": "Research pack",
       "items": [
         {
           "name": "Google Scholar",
@@ -63,13 +63,7 @@
             "emoji": "🕸️",
             "color": "#7c3aed"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Data & statistics",
-      "items": [
+        },
         {
           "name": "Our World in Data",
           "url": "https://ourworldindata.org/",
@@ -105,13 +99,7 @@
             "emoji": "📊",
             "color": "#0369a1"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Write & cite",
-      "items": [
+        },
         {
           "name": "Zotero",
           "url": "https://www.zotero.org/",
@@ -129,92 +117,92 @@
             "emoji": "📝",
             "color": "#15803d"
           }
+        },
+        {
+          "type": "prompt",
+          "name": "Summarise this paper",
+          "prompt": "Summarise this paper: research question, method, data or sample, key findings (with the numbers), limitations, and how it relates to {{ask: Your research topic?}}. Quote the line that supports each finding.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📄",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Extract the methods",
+          "prompt": "From this page, list the study design, sample size, variables, instruments and statistical tests as a table. Write \"not reported\" for anything the paper doesn't state.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧪",
+            "color": "#0e7490"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Compare my sources",
+          "prompt": "Search my files for {{ask: Topic or question?}} and compare what each source says: where they agree, where they contradict each other, and what none of them covers. Name the file for every point.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "⚖️",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Cite this page",
+          "prompt": "Create an APA 7 citation for this page ({{page}}), and the same reference as BibTeX. If the author or date is missing, say so instead of guessing.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔖",
+            "color": "#dc2626"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Explain simply",
+          "prompt": "Explain this for a smart non-specialist in under 150 words, then list 3 key terms with one-line definitions:\n\n{{selection}}",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💡",
+            "color": "#ca8a04"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Find related work",
+          "prompt": "Search the web for studies from the last 3 years that address the same question as this page. List 5 with title, year, venue and link, and one sentence on how each relates.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🔭",
+            "color": "#0f766e"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Literature notes",
+          "prompt": "Turn this page into literature-review notes in Markdown: full citation, a 5-sentence summary, key quotes with their section, and 3 questions I should ask about it.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗒️",
+            "color": "#334155"
+          }
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "name": "Summarise this paper",
-      "prompt": "Summarise this paper: research question, method, data or sample, key findings (with the numbers), limitations, and how it relates to {{ask: Your research topic?}}. Quote the line that supports each finding.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📄",
-        "color": "#2563eb"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Extract the methods",
-      "prompt": "From this page, list the study design, sample size, variables, instruments and statistical tests as a table. Write \"not reported\" for anything the paper doesn't state.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🧪",
-        "color": "#0e7490"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Compare my sources",
-      "prompt": "Search my files for {{ask: Topic or question?}} and compare what each source says: where they agree, where they contradict each other, and what none of them covers. Name the file for every point.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "⚖️",
-        "color": "#7c3aed"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Cite this page",
-      "prompt": "Create an APA 7 citation for this page ({{page}}), and the same reference as BibTeX. If the author or date is missing, say so instead of guessing.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🔖",
-        "color": "#dc2626"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Explain simply",
-      "prompt": "Explain this for a smart non-specialist in under 150 words, then list 3 key terms with one-line definitions:\n\n{{selection}}",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💡",
-        "color": "#ca8a04"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Find related work",
-      "prompt": "Search the web for studies from the last 3 years that address the same question as this page. List 5 with title, year, venue and link, and one sentence on how each relates.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🔭",
-        "color": "#0f766e"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Literature notes",
-      "prompt": "Turn this page into literature-review notes in Markdown: full citation, a 5-sentence summary, key quotes with their section, and 3 questions I should ask about it.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🗒️",
-        "color": "#334155"
-      }
     }
   ]
 }

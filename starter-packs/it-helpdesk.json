@@ -4,11 +4,11 @@
   "version": 2,
   "title": "IT helpdesk starter",
   "description": "Service status pages, admin consoles and security checks, plus prompts to triage tickets, reply to users and write knowledge-base articles.",
-  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "exportedAt": "2026-10-17T00:00:00.000Z",
   "apps": [
     {
       "type": "folder",
-      "name": "Service status",
+      "name": "IT helpdesk pack",
       "items": [
         {
           "name": "Microsoft 365 status",
@@ -63,13 +63,7 @@
             "emoji": "📉",
             "color": "#dc2626"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Admin consoles",
-      "items": [
+        },
         {
           "name": "Microsoft 365 admin",
           "url": "https://admin.microsoft.com/",
@@ -105,13 +99,7 @@
             "emoji": "⚙️",
             "color": "#15803d"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Security checks",
-      "items": [
+        },
         {
           "name": "Have I Been Pwned",
           "url": "https://haveibeenpwned.com/",
@@ -138,92 +126,92 @@
             "emoji": "🌐",
             "color": "#334155"
           }
+        },
+        {
+          "type": "prompt",
+          "name": "Triage this ticket",
+          "prompt": "Read this ticket and give: category, priority (P1 to P4) with the reason, the likely cause, the first 3 troubleshooting steps, and the questions to ask the user if information is missing.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🎫",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Reply to the user",
+          "prompt": "Draft a friendly, plain-language reply to the person in this ticket: what we found, what they should do next (numbered steps) and when we'll follow up. No jargon.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💬",
+            "color": "#2563eb"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Is it an outage?",
+          "prompt": "Find the official status page for {{ask: Which service? | Microsoft 365}}, open it, and tell me whether there is a known incident: since when, what is affected, and the latest update.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🚦",
+            "color": "#dc2626"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Write a KB article",
+          "prompt": "Turn this solved ticket into a knowledge-base article: title, symptoms, cause, step-by-step fix a non-technical person can follow, and how to prevent it.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📘",
+            "color": "#0f766e"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Explain this error",
+          "prompt": "Explain this error in plain words and list the most likely fixes, most likely first:\n\n{{selection}}",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧯",
+            "color": "#b91c1c"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Phishing check",
+          "prompt": "Look at this email or page for phishing signs: sender and link domains, urgency, mismatched addresses, unexpected attachments and requests for passwords or payment. Give a verdict (likely safe, suspicious, or phishing) and what the user should do. Do not open any of its links.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🎣",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Onboarding checklist",
+          "prompt": "Create an IT onboarding checklist for a new {{ask: Role? | Sales}} starting {{ask: Start date?}}: accounts, licences, hardware, access groups, security training and first-day tasks.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "✅",
+            "color": "#16a34a"
+          }
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "name": "Triage this ticket",
-      "prompt": "Read this ticket and give: category, priority (P1 to P4) with the reason, the likely cause, the first 3 troubleshooting steps, and the questions to ask the user if information is missing.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🎫",
-        "color": "#ea580c"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Reply to the user",
-      "prompt": "Draft a friendly, plain-language reply to the person in this ticket: what we found, what they should do next (numbered steps) and when we'll follow up. No jargon.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💬",
-        "color": "#2563eb"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Is it an outage?",
-      "prompt": "Find the official status page for {{ask: Which service? | Microsoft 365}}, open it, and tell me whether there is a known incident: since when, what is affected, and the latest update.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🚦",
-        "color": "#dc2626"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Write a KB article",
-      "prompt": "Turn this solved ticket into a knowledge-base article: title, symptoms, cause, step-by-step fix a non-technical person can follow, and how to prevent it.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📘",
-        "color": "#0f766e"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Explain this error",
-      "prompt": "Explain this error in plain words and list the most likely fixes, most likely first:\n\n{{selection}}",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🧯",
-        "color": "#b91c1c"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Phishing check",
-      "prompt": "Look at this email or page for phishing signs: sender and link domains, urgency, mismatched addresses, unexpected attachments and requests for passwords or payment. Give a verdict (likely safe, suspicious, or phishing) and what the user should do. Do not open any of its links.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🎣",
-        "color": "#7c3aed"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Onboarding checklist",
-      "prompt": "Create an IT onboarding checklist for a new {{ask: Role? | Sales}} starting {{ask: Start date?}}: accounts, licences, hardware, access groups, security training and first-day tasks.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "✅",
-        "color": "#16a34a"
-      }
     }
   ]
 }

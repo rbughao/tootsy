@@ -4,11 +4,11 @@
   "version": 2,
   "title": "Finance starter",
   "description": "Rates, filings and accounting tools, plus prompts to summarise reports, check invoices, fill expense claims and analyse variances.",
-  "exportedAt": "2026-10-16T00:00:00.000Z",
+  "exportedAt": "2026-10-17T00:00:00.000Z",
   "apps": [
     {
       "type": "folder",
-      "name": "Markets & rates",
+      "name": "Finance pack",
       "items": [
         {
           "name": "XE currency",
@@ -45,13 +45,7 @@
             "emoji": "🏛️",
             "color": "#0e7490"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Filings & standards",
-      "items": [
+        },
         {
           "name": "SEC EDGAR search",
           "url": "https://www.sec.gov/edgar/search/",
@@ -69,13 +63,7 @@
             "emoji": "📘",
             "color": "#0f766e"
           }
-        }
-      ]
-    },
-    {
-      "type": "folder",
-      "name": "Accounting",
-      "items": [
+        },
         {
           "name": "QuickBooks",
           "url": "https://qbo.intuit.com/",
@@ -102,92 +90,92 @@
             "emoji": "💳",
             "color": "#0d9488"
           }
+        },
+        {
+          "type": "prompt",
+          "name": "Summarise this report",
+          "prompt": "Summarise this financial report or filing: revenue, gross margin, operating income, net income, cash flow, debt and guidance, each against the prior period with the % change. List the risks the report itself mentions. Use only figures from the page.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📑",
+            "color": "#1e3a8a"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Check an invoice",
+          "prompt": "Check the invoice on this page against my files (purchase orders, contracts) for {{ask: Supplier? | this supplier}}: amounts, quantities, unit prices, tax, payment terms and due date. List every mismatch.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🧾",
+            "color": "#15803d"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Fill an expense claim",
+          "prompt": "Fill the expense form on this page with these receipt details: {{ask: Receipt details (date, merchant, amount, category)?}} Show me what you will enter, and do not press submit.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💳",
+            "color": "#0d9488"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Variance analysis",
+          "prompt": "From the table on this page, calculate actual vs. budget variance (amount and %) for each line, flag anything over {{ask: Threshold? | 10%}}, and suggest likely explanations to check.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "📊",
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Convert currency",
+          "prompt": "Convert {{ask: Amount and currencies? | 1,250 USD to EUR}} at today's rate. Show the rate, its source, and when it was quoted.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💱",
+            "color": "#1d4ed8"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Month-end checklist",
+          "prompt": "Create a month-end close checklist for the month of {{date}}: reconciliations, accruals, prepayments, intercompany, fixed assets and reporting, with an empty owner column.",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "🗓️",
+            "color": "#ea580c"
+          }
+        },
+        {
+          "type": "prompt",
+          "name": "Explain a term",
+          "prompt": "Explain this finance term or clause in plain words, with a short example using numbers:\n\n{{selection}}",
+          "send": true,
+          "hands": false,
+          "icon": {
+            "type": "emoji",
+            "emoji": "💡",
+            "color": "#ca8a04"
+          }
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "name": "Summarise this report",
-      "prompt": "Summarise this financial report or filing: revenue, gross margin, operating income, net income, cash flow, debt and guidance, each against the prior period with the % change. List the risks the report itself mentions. Use only figures from the page.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📑",
-        "color": "#1e3a8a"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Check an invoice",
-      "prompt": "Check the invoice on this page against my files (purchase orders, contracts) for {{ask: Supplier? | this supplier}}: amounts, quantities, unit prices, tax, payment terms and due date. List every mismatch.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🧾",
-        "color": "#15803d"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Fill an expense claim",
-      "prompt": "Fill the expense form on this page with these receipt details: {{ask: Receipt details (date, merchant, amount, category)?}} Show me what you will enter, and do not press submit.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💳",
-        "color": "#0d9488"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Variance analysis",
-      "prompt": "From the table on this page, calculate actual vs. budget variance (amount and %) for each line, flag anything over {{ask: Threshold? | 10%}}, and suggest likely explanations to check.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "📊",
-        "color": "#7c3aed"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Convert currency",
-      "prompt": "Convert {{ask: Amount and currencies? | 1,250 USD to EUR}} at today's rate. Show the rate, its source, and when it was quoted.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💱",
-        "color": "#1d4ed8"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Month-end checklist",
-      "prompt": "Create a month-end close checklist for the month of {{date}}: reconciliations, accruals, prepayments, intercompany, fixed assets and reporting, with an empty owner column.",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "🗓️",
-        "color": "#ea580c"
-      }
-    },
-    {
-      "type": "prompt",
-      "name": "Explain a term",
-      "prompt": "Explain this finance term or clause in plain words, with a short example using numbers:\n\n{{selection}}",
-      "send": true,
-      "hands": false,
-      "icon": {
-        "type": "emoji",
-        "emoji": "💡",
-        "color": "#ca8a04"
-      }
     }
   ]
 }
