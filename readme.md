@@ -308,6 +308,8 @@ A prompt tile can leave blanks that are filled in when it runs. Tap a chip under
 | `{{clipboard}}` | what you last copied (Chrome asks once for permission) |
 | `{{date}}`, `{{time}}` | today's date, the time now |
 | `{{ask: Which dates?}}` | asks you before running; add a default after a bar: `{{ask: Back on? \| Monday}}` |
+| `{{previous}}` | the answer from the step before, when tiles run as a chain (see [2.5.5](#255-call-and-chain-prompt-tiles)) |
+| `{{tile: Brand voice}}` | another prompt tile's instruction, pasted in when this one runs |
 
 For example, a **Book leave** tile with *"Start a leave request from `{{ask: First day off?}}` to `{{ask: Back at work on? | Monday}}`. Stop before submitting."* asks two questions, then runs:
 
@@ -341,6 +343,64 @@ Background checks open the page in a tab of their own and close it afterwards, s
 Say *"email this summary to me"* or *"draft an email to sam@example.com with these prices"*, and Tootsy opens a ready-to-send draft in your mail. **It never sends anything itself**: you review the draft and press Send.
 
 Set it up once in Settings → **Email**: choose **Gmail**, **Outlook (work or school)**, **Outlook.com** or **My default mail app**, and enter your own address so "to me" works. Very long messages don't fit in a draft link, so Tootsy puts a shortened version in the draft and the full text on your clipboard to paste in.
+
+#### 2.5.5 Call and chain prompt tiles
+
+Build small prompt tiles once, then reuse them.
+
+**Call another tile.** In the editor, tap **⛓ Another tile** and pick one: `{{tile: Brand voice}}` goes into the instruction, and that tile's instruction is pasted in when this one runs. It's still one run with one answer. Good for a tone guide, a checklist or a report format you use in many tiles. Tiles can use tiles up to three levels deep.
+
+**Chain tiles.** Under **Then run**, tap **＋ Add a tile** to pick the tiles that run after this one, in order; ↑ ↓ reorder them and ✕ removes one. Each step runs when the one before finishes, in the same chat, and a tile can use the answer before it with `{{previous}}`. For example *Morning check* (audit the site) → *Summarise for the team* ("Turn `{{previous}}` into 3 bullet points") → *Email it to me*. A chained tile shows ⛓ on its icon.
+
+<p align="center">
+  <img src="images/chain-editor.png" alt="The prompt editor: Previous answer and Another tile chips, and a Then run list with This prompt and Brand voice" width="280">
+  <img src="images/chain-run.png" alt="A chain running in the chat: Step 1, 2 and 3 dividers, each reply, and Finished Morning check, 3 of 3 steps, with Run again" width="280">
+</p>
+
+- **Each step keeps its own settings.** A step asks before it acts unless *its* tile is hands-free; a hands-free tile doesn't make the tiles after it hands-free.
+- **Questions are asked once, up front.** Every `{{ask: …}}` in the chain is in one form before the first step runs.
+- **Stop means stop.** The Stop button ends the whole chain. If a step fails, or you decline one of its actions, the chain stops there and says so; **Run step N** picks up from that step.
+- **Check before it runs.** Shift-click a chained tile (or turn off **Send right away**) to see every step first, edit the first prompt and answer the questions, then **⛓ Run chain**.
+- **On a schedule** every step runs in the background, in one tab that's closed afterwards, and you get one notification and one saved chat. Steps that would need your approval don't act, and tiles from an app list you subscribed to are skipped, because they never run on a timer.
+- **Safe to rename.** Chains follow a tile when you rename it. Removing a tile that other tiles use says so, with Undo.
+- **Limits.** Up to 10 steps per run (a step with its own Then run list runs it in place). The picker greys out tiles that would make a loop.
+- **Asking by name** works too: *"run Morning check"* runs every step.
+
+<p align="center">
+  <img src="images/chain-review.png" alt="The review card: Morning check, 3 steps, the first prompt to edit, steps 2 and 3, Run chain and Cancel" width="280">
+  <img src="images/chain-stopped.png" alt="A chain stopped at step 2 of 3 after an action was declined, with Run step 2" width="280">
+</p>
+
+Exported app files and starter packs keep chains: the steps are saved by name and linked up again when imported.
+
+#### 2.5.6 Run a tile on another computer
+
+Start a prompt tile on another of your computers: from home, run *Weekly KPIs* on the office PC that's signed in to the intranet, and get the result back here. Your computers talk through your own **Chrome sync** (the same Chrome profile, with sync on), not through Tootsy, which has no server.
+
+**On the computer that will run tiles** (for example the office PC):
+1. Settings → **Other computers**: give it a name and tick **Let my other computers run tiles here**.
+2. Open each tile it may run (⋯ → Edit…) and tick **Can run from my other computers**. Only marked tiles can be started remotely.
+3. Optional: **Ask me first** shows Allow / Deny on that computer before each run. Leave it off for a computer that runs unattended.
+
+<p align="center">
+  <img src="images/remote-settings.png" alt="Settings, Other computers: this computer's name, Let my other computers run tiles here, Ask me first, and Your computers listing Office PC, Home PC and Lab PC" width="280">
+  <img src="images/remote-editor.png" alt="The tile editor with Can run from my other computers ticked" width="280">
+</p>
+
+**On the computer you're using:** right-click the tile → **📡 Run on…** → pick the computer, or ask *"run Weekly KPIs on my office PC"* (Tootsy always shows an approval chip first). The tile's questions are asked here, before it's sent. A card in the chat follows it: **Sent → got it → Done**, with the result and *Full chat saved on Office PC*.
+
+<p align="center">
+  <img src="images/remote-runon.png" alt="A tile's menu with Run on…" width="280">
+  <img src="images/remote-done.png" alt="The card: Lab PC ran Weekly KPIs, finished, with the summary and Run again" width="280">
+</p>
+
+- **It runs like a scheduled tile:** in the background, in its own tab that's closed afterwards. Actions that need approval are refused (nobody is there), and the page security scan, protected sites and read-only background runs apply. Chained tiles run every step.
+- **The other computer always says so:** a notification (*"Ran for Home PC"*), a 📡 chat with the full result, and an entry in its action log.
+- **Usually under a minute.** Chrome must be open on the other computer (Tootsy itself needn't be). A request expires after 30 minutes; if nobody answers, the card says so.
+- **Safe by design:** a request can only name a tile the other computer accepts, plus answers to its questions; never free text. Each request runs once, up to 20 runs an hour, and a remote run can't start another one. Tiles from subscribed app lists can't be run remotely.
+- **Nothing showing?** Your other computers appear once Tootsy has been set up there. Check that Chrome sync includes Extensions: Chrome Settings → You and Google → Sync → Manage what you sync.
+
+Remote runs use a little of Chrome sync's space (about 100 KB in total, shared with My apps sync); requests and results are removed once they're read.
 
 ### 2.6 Talk to Tootsy
 
@@ -431,10 +491,12 @@ Settings → **Safety** holds the controls that decide what Tootsy may do:
 
 ### 2.10.1 Security hardening
 
-Settings → **Security hardening** holds extra protections taken from the [OWASP Top 10 for LLM Applications (2026)](https://genai.owasp.org/). The section starts collapsed and shows how many protections are on (for example *8 of 13 on*); click its title to open it. Each one is a switch. The ones that cost you nothing start **on**. The ones that add questions, delete data or limit what Tootsy can do start **off**, so you can turn them on when you want them.
+Settings → **Security hardening** holds extra protections taken from the [OWASP Top 10 for LLM Applications (2026)](https://genai.owasp.org/). The section starts collapsed and shows how many protections are on (for example *9 of 15 on*); click its title to open it. Each one is a switch. The ones that cost you nothing start **on**. The ones that add questions, delete data or limit what Tootsy can do start **off**, so you can turn them on when you want them.
 
 | Switch | Default | What it stops | OWASP |
 |---|---|---|---|
+| Scan pages before acting | On | Tootsy clicking or typing on a page that looks like a scam: lookalike address, insecure sign-in, a form that sends your data elsewhere, an invisible layer or hidden instructions. See [2.10.2](#2102-scan-pages-before-acting). | LLM01, LLM06 |
+| Get a second opinion from an AI model | Off | Adds a model's explanation to pages the built-in checks flag. | LLM01 |
 | Don't load images in answers | On | A tricked answer can't send your data out through a picture that loads by itself. Images show as a **🖼 Load** button. | LLM10, LLM02 |
 | Remove hidden characters | On | Invisible characters that hide instructions in pages, files or replies, or make an approval chip differ from what really runs. | LLM01 |
 | Ask before sending data to addresses Tootsy built itself | On | Once a reply has read your files, notes, history or tabs, Tootsy asks before it opens a web address or runs a search it put together itself. Addresses you typed, or that a page showed, are fine. | LLM01, LLM02 |
@@ -450,6 +512,38 @@ Settings → **Security hardening** holds extra protections taken from the [OWAS
 | Ask for sources in answers | Off | Tootsy backs claims with a quote or the file they came from, and says when it isn't sure. | LLM07 |
 
 Links in answers also show their full address when you hover over them, so you can see where a link really goes before you click. IT can set and lock every switch through policy (see [For IT](#34-for-it-manage-tootsy-with-browser-policy)).
+
+### 2.10.2 Scan pages before acting
+
+Each page you open is checked in the background as soon as it loads. The check takes a few milliseconds and runs on your computer, so it doesn't slow Tootsy down or send anything anywhere. It looks for:
+
+- **Lookalike addresses:** `paypa1-login.com` or `g00gle.com`, or a well-known name on someone else's site (`paypal-verify.net`).
+- **Insecure sign-ins:** a page asking for a password or card number without https, or on a bare IP address.
+- **Forms that send your data elsewhere:** the password or card form posts to a different site.
+- **Parts that load insecurely:** scripts or frames over plain http on a secure page.
+- **Invisible layers:** something see-through covering the page that would catch clicks (clickjacking).
+- **Hidden instructions:** text aimed at AI assistants, such as "ignore all previous instructions".
+- **Pressure to act fast:** "your account will be suspended within 24 hours", on a page that asks for your details.
+
+<p align="center">
+  <img src="images/scan-warning.png" alt="A warning above the message box: This page might have security issues, paypa1-secure.example, 6 found" width="280">
+  <img src="images/scan-details.png" alt="The warning opened, listing each issue in plain words, with I trust this site" width="280">
+</p>
+
+**What happens on a flagged page**
+- A warning appears above the message box. **Details** lists each issue in plain words; **✕** hides it for that page.
+- **Reading still works.** Tootsy can read and summarise the page, and it tells the AI what the scan found.
+- **Before the first click or typing,** Tootsy asks you, naming the issues, even with hands-free on. Approve once and it carries on for the rest of that reply.
+- **Scheduled runs don't act** on a flagged page. They stop and tell you, so you can check the page yourself.
+- **I trust this site** adds it to your trusted sites, and it's never flagged again.
+
+Clean pages get a short green *Page checked* note that fades away. Minor things, such as images over http or links to `.exe` files, appear only as notes and never stop Tootsy. Local development sites (`localhost`, `*.test`) are left alone.
+
+**A second opinion (optional).** Turn on **Get a second opinion from an AI model** to have a model explain flagged pages. It only looks at pages the built-in checks already flagged, in the background. A model on your computer gets the page text; a cloud model gets only the page's address, structure and findings. Leave **Model for the second opinion** empty to use your current model, or name a small local one such as `gemma3:1b`.
+
+<p align="center"><img src="images/scan-settings.png" alt="Settings: Scan pages before acting, Get a second opinion from an AI model, and Model for the second opinion" width="300"></p>
+
+The scan can't prove a page is safe. It catches common tricks, so keep an eye on the address bar for anything that matters.
 
 ### 2.11 Move Tootsy to another computer
 
@@ -749,7 +843,8 @@ Chrome and Edge let IT configure an extension from the admin console. With Toots
     { "name": "IT Help", "url": "https://helpdesk.acme.example/" },
     { "type": "folder", "name": "HR", "items": [
       { "name": "Payroll", "url": "https://payroll.acme.example/" },
-      { "type": "prompt", "name": "Book leave", "prompt": "Open leave.acme.example and start a leave request from {{ask: First day off?}} to {{ask: Back at work on?}}. Stop before submitting." }
+      { "type": "prompt", "name": "Book leave", "prompt": "Open leave.acme.example and start a leave request from {{ask: First day off?}} to {{ask: Back at work on?}}. Stop before submitting.", "then": ["Tell my manager"] },
+      { "type": "prompt", "name": "Tell my manager", "prompt": "Draft an email to my manager about this leave request: {{previous}}" }
     ] }
   ] },
   "appsUrl": { "Value": "https://intranet.acme.example/tootsy/apps.json" },
@@ -773,9 +868,10 @@ On **Windows** you can set the same keys in the registry under `HKLM\Software\Po
 | `appsTitle` | The heading above them. Default: *Company apps*. |
 | `appsUrl` | An address of a Tootsy apps file (or bookmarks `.html`) everyone follows. It's fetched with the user's sign-in, so it can live on the intranet. |
 | `settings` | Defaults. Each one fills a setting the user hasn't set yet. |
-| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`, `redactCloud`, `redactTerms`, `suggestChips`, and the security hardening switches `secBlockImages`, `secStripHidden`, `secOutboundGuard`, `secScanFiles`, `secConfirmMemory`, `secMaxSteps`, `secSubsSafe`, `secBackupNoKeys`, `secReadOnlyBackground`, `secLogNoValues`, `secChatRetentionDays`, `secNoReadProtected`, `secRequireSources`. |
+| `lockedSettings` | Settings from `settings` that always apply and can't be changed: `endpoint`, `apiKey`, `selectedModel`, `provider`, `contextWindow`, `customInstructions`, `protectedSites`, `askSites`, `trustedSites`, `siteGuard`, `pageGuard`, `automationMode`, `toolRouting`, `enableHistory`, `enableDevtools`, `searchEngine`, `emailClient`, `sessionPerTab`, `voiceAutoSend`, `embedModel`, `uiLanguage`, `redactCloud`, `redactTerms`, `suggestChips`, and the security hardening switches `secPageScan`, `secScanAI`, `secScanModel`, `secBlockImages`, `secStripHidden`, `secOutboundGuard`, `secScanFiles`, `secConfirmMemory`, `secMaxSteps`, `secSubsSafe`, `secBackupNoKeys`, `secReadOnlyBackground`, `secLogNoValues`, `secChatRetentionDays`, `secNoReadProtected`, `secRequireSources`. |
 | `allowedEndpoints` | AI servers Tootsy may use, by host name. A request to anything else is refused with a clear message. |
 | `allowHandsFree` | `false` turns off automation mode, hands-free tiles and scheduled background runs. |
+| `allowRemoteRuns` | `false`: this computer never runs tiles started from the user's other computers (Settings → Other computers is locked off). |
 
 Changes take effect within seconds of Chrome receiving the policy. Users with the extension open see the locked sections update in place.
 
