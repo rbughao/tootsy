@@ -10,7 +10,7 @@
 
 ---
 
-Tootsy is an AI assistant that lives in Chrome's side panel, next to the page you're looking at. It can read the page, answer questions about it, fill in forms, click through websites for you, answer questions about your own files, and keep your favourite sites and saved instructions one tap away.
+Tootsy is an AI assistant that lives in Chrome's side panel, next to the page you're looking at. It can read the page, answer questions about it, fill in forms, click through websites for you, answer questions about your own files, and keep your favourite sites and saved instructions one tap away. Saved instructions can run one after another as a chain, on a schedule, or on another of your computers, and every page is checked for scam signs before Tootsy clicks or types there.
 
 Tootsy doesn't come with its own AI. You connect it to a model you choose: one running on your own computer (free and private), a company server, or a cloud service such as Claude or Gemini. Tootsy has no servers of its own, no account and no tracking.
 
@@ -33,6 +33,8 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Teach by showing: record steps](#252-teach-by-showing-record-steps)
    - [Watch a page for changes](#253-watch-a-page-for-changes)
    - [Email drafts](#254-email-drafts)
+   - [Call and chain prompt tiles](#255-call-and-chain-prompt-tiles)
+   - [Run a tile on another computer](#256-run-a-tile-on-another-computer)
    - [Talk to Tootsy](#26-talk-to-tootsy)
    - [Ask about your own files](#27-ask-about-your-own-files)
    - [See where an answer came from](#271-see-where-an-answer-came-from)
@@ -41,6 +43,7 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Chats and sessions](#29-chats-and-sessions)
    - [Stay in control](#210-stay-in-control)
    - [Security hardening](#2101-security-hardening)
+   - [Scan pages before acting](#2102-scan-pages-before-acting)
    - [Move Tootsy to another computer](#211-move-tootsy-to-another-computer)
 3. [Use cases](#3-use-cases)
    - [Personal](#31-personal)
@@ -661,6 +664,9 @@ Put your daily sites and prompt tiles in My apps, group them into folders (*Morn
 | **How-to answers** | Load the IT handbook as files: "How do I connect to the VPN from home?" answers with the page it came from. |
 | **Repeatable admin tasks** | [Record](#252-teach-by-showing-record-steps) yourself resetting an account in the admin portal once; save it as a tile for the team. |
 | **Service checks** | A scheduled watch on the status page: notified only when a service changes state. |
+| **Morning routine** | One [chained tile](#255-call-and-chain-prompt-tiles): check the status page → summarise it for the team → draft the email. One tap, three steps, each using the answer before. |
+| **Reports from anywhere** | Mark *Weekly KPIs* on the office PC that's signed in to the intranet; from home, **Run on… ▸ Office PC** and the numbers come back in your chat ([how](#256-run-a-tile-on-another-computer)). |
+| **Phishing protection** | Every page is [scanned before Tootsy acts](#2102-scan-pages-before-acting): a fake sign-in page gets a warning and an approval chip, and scheduled runs don't touch it. |
 | **Governance** | Lock the AI server, allow only approved endpoints, keep payroll and admin consoles protected, and turn off hands-free runs if needed, all from the admin console. |
 
 #### HR and people teams
