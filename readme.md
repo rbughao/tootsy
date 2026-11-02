@@ -35,6 +35,7 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Email drafts](#254-email-drafts)
    - [Call and chain prompt tiles](#255-call-and-chain-prompt-tiles)
    - [Run a tile on another computer](#256-run-a-tile-on-another-computer)
+   - [Let T4B run your tiles](#257-let-t4b-run-your-tiles)
    - [Talk to Tootsy](#26-talk-to-tootsy)
    - [Ask about your own files](#27-ask-about-your-own-files)
    - [See where an answer came from](#271-see-where-an-answer-came-from)
@@ -390,7 +391,7 @@ Start a prompt tile on another of your computers: from home, run *Weekly KPIs* o
   <img src="images/remote-editor.png" alt="The tile editor with Can run from my other computers ticked" width="280">
 </p>
 
-**On the computer you're using:** right-click the tile → **📡 Run on…** → pick the computer, or ask *"run Weekly KPIs on my office PC"* (Tootsy always shows an approval chip first). The tile's questions are asked here, before it's sent. A card in the chat follows it: **Sent → got it → Done**, with the result and *Full chat saved on Office PC*.
+**On the computer you're using:** see what your other computers offer in Settings → **Other computers** (each computer lists its tiles; tap one to run it there) or in My apps ⋯ → **📡 Run on another computer…**. The tile doesn't need to be in this computer's My apps. You can also right-click a tile you have here → **📡 Run on…** → pick the computer, or ask *"run Weekly KPIs on my office PC"* (Tootsy always shows an approval chip first). The tile's questions are asked here, before it's sent. A card in the chat follows it: **Sent → got it → Done**, with the result and *Full chat saved on Office PC*.
 
 <p align="center">
   <img src="images/remote-runon.png" alt="A tile's menu with Run on…" width="280">
@@ -401,9 +402,24 @@ Start a prompt tile on another of your computers: from home, run *Weekly KPIs* o
 - **The other computer always says so:** a notification (*"Ran for Home PC"*), a 📡 chat with the full result, and an entry in its action log.
 - **Usually under a minute.** Chrome must be open on the other computer (Tootsy itself needn't be). A request expires after 30 minutes; if nobody answers, the card says so.
 - **Safe by design:** a request can only name a tile the other computer accepts, plus answers to its questions; never free text. Each request runs once, up to 20 runs an hour, and a remote run can't start another one. Tiles from subscribed app lists can't be run remotely.
-- **Nothing showing?** Your other computers appear once Tootsy has been set up there. Check that Chrome sync includes Extensions: Chrome Settings → You and Google → Sync → Manage what you sync.
+- **A computer shows "no tiles marked"?** On that computer, open each tile it may run (⋯ → Edit…) and tick **Can run from my other computers**; turning the computer on alone doesn't offer any tiles.
+- **Nothing showing?** Your other computers appear once Tootsy has been set up there. Every computer needs Tootsy from the Chrome Web Store: copies loaded unpacked from different folders have different IDs and can't see each other's sync. Check that Chrome sync includes Extensions: Chrome Settings → You and Google → Sync → Manage what you sync.
 
 Remote runs use a little of Chrome sync's space (about 100 KB in total, shared with My apps sync); requests and results are removed once they're read.
+
+#### 2.5.7 Let T4B run your tiles
+
+[T4B - Tootsy for Business](https://github.com/rbughao/t4b) is the desktop AI assistant from the makers of Tootsy. Once paired, a T4B chat can run your prompt tiles: ask T4B *"run my Weekly KPIs tile for EMEA"* and it runs the tile here, in the background, with the model you set up in Tootsy, then uses the answer in its reply.
+
+1. **In T4B:** Settings → Tools → **Tootsy Chrome extension** → turn it on and click **Copy** next to the pairing code.
+2. **In Tootsy** (in the Chrome profile you want to use): Settings → **T4B desktop app** → tick **Let T4B run tiles here** and paste the code. The status line says **Connected to T4B** once both are open.
+3. Open each tile T4B may run (⋯ → Edit…) and tick **Can run from T4B**. Only marked tiles can be run.
+4. Optional: **Ask me first** shows Allow / Deny here before each run.
+
+- **It runs like a scheduled tile:** in the background, in its own tab that's closed afterwards. Actions that need approval are refused, and the page security scan, protected sites and read-only background runs apply. You get a notification and a 📡 chat with the full result.
+- **Private:** T4B and Tootsy talk directly on this computer (`127.0.0.1`), never through the internet. T4B only accepts this extension, with your pairing code; making a new code in T4B disconnects the old one.
+- **Safe by design:** T4B can only name a tile you marked, plus answers to its questions; never free text. T4B asks you before each run, each run happens once, and up to 20 runs an hour (shared with runs from your other computers). Your organization's setting for runs from other computers (`allowRemoteRuns`) covers this too.
+- **Not connecting?** Both must be open: T4B, and Chrome with this profile. Check the port matches in both (47821 unless you changed it), and paste the code again if Tootsy says it was not accepted.
 
 ### 2.6 Talk to Tootsy
 
