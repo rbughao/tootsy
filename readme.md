@@ -368,6 +368,7 @@ Build small prompt tiles once, then reuse them.
 - **On a schedule** every step runs in the background, in one tab that's closed afterwards, and you get one notification and one saved chat. Steps that would need your approval don't act, and tiles from an app list you subscribed to are skipped, because they never run on a timer.
 - **Safe to rename.** Chains follow a tile when you rename it. Removing a tile that other tiles use says so, with Undo.
 - **Limits.** Up to 10 steps per run (a step with its own Then run list runs it in place). The picker greys out tiles that would make a loop.
+- **Steps on your other computers.** When your other computers offer tiles ([2.5.6](#256-run-a-tile-on-another-computer)), the **＋ Add a tile** list groups tiles by computer: *On this computer (Home PC)*, then *On Office PC*. Pick one and that step runs there, shown as 📡 *Runs on Office PC* in the list and *Step 2 of 3 · Weekly KPIs on Office PC* in the chat. Its questions are asked up front with the rest, and its result becomes the next step's `{{previous}}`. It gets only its own questions' answers, not the answer before it. If that computer doesn't answer or no longer offers the tile, the chain stops there. Scheduled chains skip these steps; they run when you start the chain yourself.
 - **Asking by name** works too: *"run Morning check"* runs every step.
 
 <p align="center">
