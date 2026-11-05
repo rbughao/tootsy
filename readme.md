@@ -35,7 +35,8 @@ Tootsy doesn't come with its own AI. You connect it to a model you choose: one r
    - [Email drafts](#254-email-drafts)
    - [Call and chain prompt tiles](#255-call-and-chain-prompt-tiles)
    - [Run a tile on another computer](#256-run-a-tile-on-another-computer)
-   - [Let T4B run your tiles](#257-let-t4b-run-your-tiles)
+   - [Schedule a tile on another computer](#257-schedule-a-tile-on-another-computer)
+   - [Let T4B run your tiles](#258-let-t4b-run-your-tiles)
    - [Talk to Tootsy](#26-talk-to-tootsy)
    - [Ask about your own files](#27-ask-about-your-own-files)
    - [See where an answer came from](#271-see-where-an-answer-came-from)
@@ -298,8 +299,9 @@ Each prompt tile has:
 - **Send right away**: sends it when tapped. Turn it off to drop the instruction into the message box so you can tweak it first.
 - **Run hands-free**: runs this prompt in automation mode, even if automation is off in settings.
 - **Run automatically**: repeats it on a schedule (every hour, every day and so on). Scheduled prompts run in the background while Chrome is open. Each result is saved as a chat and shown as a desktop notification.
+- **Runs on**: shown for a scheduled tile when My apps sync is on. Sync puts the tile on all your computers, so choose the one that runs it on schedule, or **Every computer** if each should run it separately. A new schedule starts on the computer where you set it. A schedule made before this setting stays on **Every computer** until you change it. Give each computer its own name in Settings → **Other computers** so they're easy to tell apart.
 
-Right-click a prompt tile for **Run**, **Edit before sending**, **Schedule…** and **Copy prompt**. Every scheduled prompt is also listed in settings under **Scheduled prompts**.
+Right-click a prompt tile for **Run**, **Edit before sending**, **Schedule…** and **Copy prompt**. Every scheduled prompt is also listed in settings under **Scheduled prompts**, where you can change how often it runs and, with My apps sync on, which computer runs it.
 
 #### 2.5.1 Fill-in blanks
 
@@ -385,7 +387,7 @@ Start a prompt tile on another of your computers: from home, run *Weekly KPIs* o
 **On the computer that will run tiles** (for example the office PC):
 1. Settings → **Other computers**: give it a name and tick **Let my other computers run tiles here**.
 2. Open each tile it may run (⋯ → Edit…) and tick **Can run from my other computers**. Only marked tiles can be started remotely.
-3. Optional: **Ask me first** shows Allow / Deny on that computer before each run. Leave it off for a computer that runs unattended.
+3. Optional: **Ask me first** shows Allow / Deny on that computer before each run (for a [schedule](#257-schedule-a-tile-on-another-computer), once when it arrives). It's set on the computer that runs the tile, not the one you start it from. Leave it off for a computer that runs unattended; turning it off also runs any requests already waiting for Allow.
 
 <p align="center">
   <img src="images/remote-settings.png" alt="Settings, Other computers: this computer's name, Let my other computers run tiles here, Ask me first, and Your computers listing Office PC, Home PC and Lab PC" width="280">
@@ -401,14 +403,45 @@ Start a prompt tile on another of your computers: from home, run *Weekly KPIs* o
 
 - **It runs like a scheduled tile:** in the background, in its own tab that's closed afterwards. Actions that need approval are refused (nobody is there), and the page security scan, protected sites and read-only background runs apply. Chained tiles run every step.
 - **The other computer always says so:** a notification (*"Ran for Home PC"*), a 📡 chat with the full result, and an entry in its action log.
-- **Usually about a minute.** Chrome must be open on the other computer (Tootsy itself needn't be). Computers that accept runs, or are waiting for an answer, check in through Chrome sync every minute. A request expires after 30 minutes. If nothing comes back for a while, the card says when that computer was last heard from; a time from long ago usually means Chrome is closed there or sync isn't reaching it.
+- **It can take several minutes.** Requests travel through Chrome sync, and Chrome decides when they arrive; Tootsy can't hurry it. Chrome must be open on the other computer (Tootsy itself needn't be). A request expires after 30 minutes. The card shows how long the request took to arrive. If nothing comes back for 5 minutes, it says when that computer was last heard from (updated about every 10 minutes); a time from long ago usually means Chrome is closed there or sync isn't reaching it.
 - **Safe by design:** a request can only name a tile the other computer accepts, plus answers to its questions; never free text. Each request runs once, up to 20 runs an hour, and a remote run can't start another one. Tiles from subscribed app lists can't be run remotely.
 - **A computer shows "no tiles marked"?** On that computer, open each tile it may run (⋯ → Edit…) and tick **Can run from my other computers**; turning the computer on alone doesn't offer any tiles.
 - **Nothing showing?** Your other computers appear once Tootsy has been set up there. Every computer needs Tootsy from the Chrome Web Store: copies loaded unpacked from different folders have different IDs and can't see each other's sync. Check that Chrome sync includes Extensions: Chrome Settings → You and Google → Sync → Manage what you sync.
 
 Remote runs use a little of Chrome sync's space (about 100 KB in total, shared with My apps sync); requests and results are removed once they're read.
 
-#### 2.5.7 Let T4B run your tiles
+#### 2.5.7 Schedule a tile on another computer
+
+**Run on…** waits for Chrome sync, so a run can start late. A schedule doesn't: it crosses Chrome sync once, ahead of time, and the other computer then runs the tile from its own clock. Your computer can be off by then.
+
+The other computer needs the same setup as [2.5.6](#256-run-a-tile-on-another-computer): **Let my other computers run tiles here** on, and the tile ticked. Every computer needs Tootsy 1.19 or later.
+
+**To schedule a tile:**
+1. Right-click the tile → **⏰ Schedule on…** and pick the computer. For a tile that's only on the other computer, use My apps ⋯ → **⏰ Schedule on another computer…**.
+2. Choose **Once**, **Daily**, **Weekly** or **Every few hours**, then a date and time.
+3. Fill in the tile's questions. A tile that reads a page asks for the page address too, because a background run has no open page.
+4. Tap **Schedule**. A card shows when the other computer confirms it.
+
+You can also say *"run Pagespeed on RoDell every day at 9"*. Tootsy asks you to approve it first.
+
+<p align="center">
+  <img src="images/remote-schedule-sheet.png" alt="The schedule sheet: Once, Daily, Weekly or Every few hours, a date and time, and the page address" width="280">
+  <img src="images/remote-schedule-folder.png" alt="The From Home PC folder on the other computer, with a scheduled tile and its next run" width="280">
+</p>
+
+**On the other computer:** a **From Home PC** folder appears in My apps, named after the computer that asked, with the scheduled tile inside. It shows the next run, **Waiting for OK** or **Paused**. Tap a tile for **Run now**, **See last result**, **Pause** and **Remove**. The folder goes away with its last tile, and it never travels with My apps sync.
+
+**On your computer:** Settings → **Scheduled on your computers** lists each schedule with its next run and last result. **Cancel** stops one. You get a notification after each run, and the full result is saved as a chat on the computer that ran it.
+
+- **Allow at least 30 minutes for the first run.** The schedule still travels through Chrome sync, which can take several minutes. Tootsy warns you if the time is sooner. Cancelling also takes as long as sync does, so a run can still happen until the other computer confirms.
+- **Chrome must be open on the other computer at that time.** If Chrome comes back within 2 hours, the tile runs then. After that, the run is skipped and you're told it was missed.
+- **"Ask me first" asks once,** when the schedule arrives, not before each run. The tile waits until someone allows it there. With the setting off, nothing asks.
+- **Turning something off stops it.** The other computer checks before every run. If remote runs are off or the tile isn't ticked any more, the schedule pauses and you're told why. It carries on by itself when that's undone.
+- **The same safety rules apply as for [Run on…](#256-run-a-tile-on-another-computer):** only tiles that computer offers, and a schedule carries the tile's id, your answers, a page address and the times, never instructions. Actions that need approval are refused.
+- **Limits:** up to 20 schedules on a computer, at least 15 minutes apart, and 20 runs an hour in total. A chain step on a third computer is skipped.
+- **Times are set on your computer.** A daily or weekly schedule then keeps the same clock time on the computer that runs it, through daylight saving changes.
+
+#### 2.5.8 Let T4B run your tiles
 
 [T4B - Tootsy for Business](https://github.com/rbughao/t4b) is the desktop AI assistant from the makers of Tootsy. Once paired, a T4B chat can run your prompt tiles: ask T4B *"run my Weekly KPIs tile for EMEA"* and it runs the tile here, in the background, with the model you set up in Tootsy, then uses the answer in its reply.
 
@@ -922,7 +955,9 @@ This suits teams, schools and clubs: one person maintains the file, and everyone
 | Long pages get cut off (Ollama) | Use `http://localhost:11434` rather than `.../v1`, and leave **Context window** on Auto. |
 | "Cannot access this page" | Chrome doesn't let extensions read its own pages (`chrome://…`) or the Web Store. Try on a normal website. |
 | The microphone doesn't work | Click the mic again. Tootsy opens a small tab where Chrome asks for microphone access. Allow it, then return to the panel. |
-| A scheduled prompt didn't run | Scheduled prompts run only while Chrome is open. Check the times in Settings → **Scheduled prompts**. |
+| A scheduled prompt didn't run | Scheduled prompts run only while Chrome is open. Check the times in Settings → **Scheduled prompts**, and with My apps sync on, check which computer it's set to run on. |
+| A schedule on another computer didn't run | Chrome must be open there at that time. Check Settings → **Scheduled on your computers** for the reason, and allow at least 30 minutes for a new schedule to arrive. |
+| A scheduled prompt runs on more than one computer | With My apps sync on, set **Runs on** to one computer, in the tile's editor or in Settings → **Scheduled prompts**. |
 | A hands-free task keeps asking for approval | The site isn't one you opened or named, or it's on your "always ask" list. Choose **Approve & trust** for sites you know. |
 | A watch never notifies | Watches only notify when the value changes. The first check always notifies; if it didn't, check the tile has a schedule and Chrome was open. |
 | "Your organization only allows these AI servers" | Your IT team restricts which AI services Tootsy may use. Pick one of the listed servers in settings. |
